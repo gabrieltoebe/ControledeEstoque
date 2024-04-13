@@ -11,7 +11,7 @@ public partial class Estoque
 
     public int TipoEstoque { get; set; }
 
-    public byte[] AtivEstoque { get; set; } = null!;
+    public bool AtivEstoque { get; set; }
 
     public virtual ICollection<Inventario> Inventarios { get; set; } = new List<Inventario>();
 

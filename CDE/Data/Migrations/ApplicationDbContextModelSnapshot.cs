@@ -15,7 +15,7 @@ namespace Control_Estoque.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.4");
 
             modelBuilder.Entity("Control_Estoque.Models.ApplicationUser", b =>
                 {
@@ -95,9 +95,8 @@ namespace Control_Estoque.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<byte[]>("AtivEstoque")
-                        .IsRequired()
-                        .HasColumnType("BLOB");
+                    b.Property<bool>("AtivEstoque")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("NomeEstoque")
                         .IsRequired()
@@ -151,11 +150,9 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CpfId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("CpfNavigationId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("DataMov")
@@ -165,9 +162,6 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("IdEstoqueNavigationIdEstoque")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("IdMovimento")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("TipoMov")
@@ -402,15 +396,11 @@ namespace Control_Estoque.Data.Migrations
                 {
                     b.HasOne("Control_Estoque.Models.ApplicationUser", "Cpf")
                         .WithMany()
-                        .HasForeignKey("CpfId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CpfId");
 
                     b.HasOne("Control_Estoque.Models.ApplicationUser", "CpfNavigation")
                         .WithMany()
-                        .HasForeignKey("CpfNavigationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CpfNavigationId");
 
                     b.HasOne("Control_Estoque.Models.Estoque", "IdEstoqueNavigation")
                         .WithMany("Inventarios")

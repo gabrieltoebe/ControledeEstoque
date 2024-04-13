@@ -14,8 +14,6 @@ public partial class Inventario
     [Key]
     public int IdInv { get; set; }
 
-    public int IdMovimento { get; set; }
-
     public int IdEstoque { get; set; }
 
     public ApplicationUser Cpf { get; set; } = null!;

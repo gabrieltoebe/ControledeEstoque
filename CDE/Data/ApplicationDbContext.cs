@@ -64,4 +64,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 public DbSet<Control_Estoque.Models.Fornecedor> Fornecedor { get; set; } = default!;
 
 public DbSet<Control_Estoque.Models.Estoque> Estoque { get; set; } = default!;
+
+public DbSet<Control_Estoque.Models.Inventario> Inventario { get; set; } = default!;
 }

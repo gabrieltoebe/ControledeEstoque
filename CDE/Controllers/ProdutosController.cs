@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
 
@@ -20,12 +21,14 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Produtos
+        [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Produto.ToListAsync());
         }
 
         // GET: Produtos/Details/5
+        [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Produtos/Create
+        [Authorize] // solo usuarios autenticados pueden crear productos
         public IActionResult Create()
         {
             return View();
@@ -54,10 +58,18 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CodProduto,NomeProduto,Descrição,DataCadastroProd")] Produto produto)
+        [Authorize] // solo usuarios autenticados pueden crear productos
+        public async Task<IActionResult> Create([Bind("CodProduto,NomeProduto,Descrição")] Produto produto)
         {
+            ModelState.Remove("Cpf");
+            ModelState.Remove("DataCadastroProd");
             if (ModelState.IsValid)
             {
+                var username = User.Identity.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                produto.Cpf = currentUser;
+                produto.DataCadastroProd = DateTime.Now;
+
                 _context.Add(produto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -66,6 +78,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Produtos/Edit/5
+        [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,17 +99,27 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição,DataCadastroProd")] Produto produto)
+        [Authorize] // solo usuarios autenticados pueden crear productos
+        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição")] Produto produto)
         {
+            
             if (id != produto.CodProduto)
             {
                 return NotFound();
             }
 
+            ModelState.Remove("Cpf");
+            ModelState.Remove("DataCadastroProd");
             if (ModelState.IsValid)
             {
+
                 try
                 {
+                    var username = User.Identity.Name;
+                    var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                    produto.Cpf = currentUser;
+                    produto.DataCadastroProd = DateTime.Now;
+
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
                 }
@@ -117,6 +140,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Produtos/Delete/5
+        [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +161,7 @@ namespace Control_Estoque.Controllers
         // POST: Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize] // solo usuarios autenticados pueden crear productos~
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var produto = await _context.Produto.FindAsync(id);
