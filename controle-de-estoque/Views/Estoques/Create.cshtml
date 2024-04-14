@@ -1,0 +1,37 @@
+﻿@model Control_Estoque.Models.Estoque
+
+@{
+    ViewData["Title"] = "Cadastro de estoque";
+}
+
+<h2 class="title">Cadastrar estoque</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeEstoque" class="control-label">Descrição</label>
+                <input asp-for="NomeEstoque" class="form-control" />
+                <span asp-validation-for="NomeEstoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AtivEstoque" class="control-label" style="margin-right: 10px;">Ativo</label>
+                @Html.CheckBoxFor(model => model.AtivEstoque, new { @class = "form-check-input" })
+                @Html.ValidationMessageFor(model => model.AtivEstoque, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary btn_margin_form" style="margin-top: 20px;" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-danger btn_margin_form" asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

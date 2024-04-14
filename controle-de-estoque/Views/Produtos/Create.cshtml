@@ -1,0 +1,64 @@
+﻿@model Control_Estoque.Models.Produto
+
+@{
+    ViewData["Title"] = "Novo produto";
+}
+
+<h1>Cadastro de produto</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NomeProduto" class="form-label">Nome</label>
+                <input asp-for="NomeProduto" class="form-control" />
+                <span asp-validation-for="NomeProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descrição" class="form-label">Descrição</label>
+                <input asp-for="Descrição" class="form-control" />
+                <span asp-validation-for="Descrição" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstoqueID" class="control-label">Estoque</label>
+                <select asp-for="EstoqueID" class="form-control" asp-items="ViewBag.EstoqueItems">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="EstoqueID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstoqueMinimo" class="form-label">Quantidade mínima no estoque</label>
+                <input type="number" asp-for="EstoqueMinimo" class="form-control" />
+                <span asp-validation-for="EstoqueMinimo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ValidadeDias" class="form-label">Validade de dias (após fabricação)</label>
+                <input type="number" asp-for="ValidadeDias" class="form-control" />
+                <span asp-validation-for="ValidadeDias" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UnidadeMedida" class="control-label">Unidade de medida</label>
+                <select asp-for="UnidadeMedida" class="form-control">
+                    <option value="CX">CX</option>
+                    <option value="UN">UN</option>
+                    <option value="KG">KG</option>
+                    <option value="LT">LT</option>
+                </select>
+                <span asp-validation-for="UnidadeMedida" class="text-danger"></span>
+            </div>            
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary btn_margin_form" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<form asp-area="" asp-controller="Produtos" asp-action="Index" method="get" class="form-group">
+    <button type="submit" class="btn btn-danger btn_margin_form">Voltar</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,226 @@
+html {
+    font-size: 14px;
+    font-family: system-ui;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+        font-family: system-ui;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    font-family: system-ui;
+}
+
+body {
+    font-family: system-ui;
+    margin: 0;
+    padding: 0;
+}
+
+.display-5{
+    margin-top: 40px;
+}
+/*override*/
+.form-control {
+    margin-bottom: 10px;
+}
+
+/*override*/
+.input-placeholder::placeholder {
+    font-size: 12px;
+    color: grey;
+}
+
+.title {
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-family: system-ui;
+    justify-content: center;
+}
+
+/*override*/
+.btn {
+    font-size: 14px;
+    font-family: system-ui;
+    margin-bottom: 10px;
+}
+
+.option {
+    font-size: 10px;
+    font-family: system-ui;
+}
+
+.container2 {
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.image-side {
+    width:60%;
+    height: 50%;
+    margin-top: 100px;
+}
+
+.blank-side {
+    width: 40%;
+    right:0;
+    margin-left: 300px;
+    padding: 0;
+    text-align: right;
+}
+
+.align-center{
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+.align-left{
+    text-align: left;
+    vertical-align: middle;
+}
+.align-right{
+    text-align: right;
+    vertical-align: middle;
+}
+
+.policy-container{
+    overflow: auto;
+    height: 90%;
+}
+.citacao{
+    text-align: justify;
+    font-style: italic;    
+    font-size: 16px;
+    color: gray;
+    margin-top: 150px;
+}
+
+.title_home{
+    margin-top: 110px;
+    font-size: 40px;
+    text-align: left;
+}
+
+.home-accordion{ 
+    height: 50%;   
+    width:46.5%;
+    margin-left: 0;
+    margin-top: -300px;
+}
+
+
+.button-22 {
+    align-items: center;
+    appearance: button;
+    background-color: #0276FF;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-size: 100%;
+    line-height: 1.15;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    margin-left: 2px;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    user-select: none;
+    width: 146px;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-22:active {
+    background-color: #006AE8;
+}
+
+.button-22:hover {
+    background-color: #1C84FF;
+}
+
+
+.button-38 {
+    background-color: #FFFFFF;
+    border: 0;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: #111827;
+    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 100%;
+    line-height: 1.5rem;
+    padding: .75rem 1rem;
+    text-align: center;
+    text-decoration: none #D1D5DB solid;
+    text-decoration-thickness: auto;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+
+    align-items: center;
+    appearance: button;
+    border-radius: 8px;
+    border-style: none;    
+    flex-direction: row;
+    flex-shrink: 0;
+    font-size: 100%;
+    line-height: 1.15;
+    justify-content: center;
+    margin: 0;    
+    margin-left: 2px;
+    padding: 10px 21px;
+    user-select: none;
+    width: 130px;
+    }
+
+
+.button-38:hover {
+    background-color: rgb(249, 250, 251);
+}
+
+.button-38:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.button-38:focus-visible {
+    box-shadow: none;
+}
+
+.btn_margin_form{
+    margin-top: 10x;
+    width: 130px;
+}
+
+.subtitle{
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: system-ui;
+    justify-content: center;
+}
