@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/evandro/git/ControledeEstoque/controle-de-estoque/Control_Estoque.csproj": {}
+    "C:\\Users\\evandro.selau\\iCloudDrive\\Documentos\\FTEC\\Projeto Empreendedor\\controle-de-estoque\\controle-de-estoque\\Control_Estoque.csproj": {}
   },
   "projects": {
-    "/home/evandro/git/ControledeEstoque/controle-de-estoque/Control_Estoque.csproj": {
+    "C:\\Users\\evandro.selau\\iCloudDrive\\Documentos\\FTEC\\Projeto Empreendedor\\controle-de-estoque\\controle-de-estoque\\Control_Estoque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/evandro/git/ControledeEstoque/controle-de-estoque/Control_Estoque.csproj",
+        "projectUniqueName": "C:\\Users\\evandro.selau\\iCloudDrive\\Documentos\\FTEC\\Projeto Empreendedor\\controle-de-estoque\\controle-de-estoque\\Control_Estoque.csproj",
         "projectName": "Control_Estoque",
-        "projectPath": "/home/evandro/git/ControledeEstoque/controle-de-estoque/Control_Estoque.csproj",
-        "packagesPath": "/home/evandro/.nuget/packages/",
-        "outputPath": "/home/evandro/git/ControledeEstoque/controle-de-estoque/obj/",
+        "projectPath": "C:\\Users\\evandro.selau\\iCloudDrive\\Documentos\\FTEC\\Projeto Empreendedor\\controle-de-estoque\\controle-de-estoque\\Control_Estoque.csproj",
+        "packagesPath": "C:\\Users\\evandro.selau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\evandro.selau\\iCloudDrive\\Documentos\\FTEC\\Projeto Empreendedor\\controle-de-estoque\\controle-de-estoque\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/evandro/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\evandro.selau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +49,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -72,6 +82,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "MimeKit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             }
           },
           "imports": [
@@ -93,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/evandro/.dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
