@@ -16,7 +16,8 @@
                 <th>Código</th>
                 <th>Nome</th>
                 <th>@Html.DisplayNameFor(model => model.Descrição)</th>
-                <th>Cadastrado em</th>
+                <th>Estoque mínimo</th>
+                <th>Unidade de medida</th>
                 <th>Opções</th>
             </tr>
         </thead>
@@ -34,7 +35,10 @@
                         @Html.DisplayFor(modelItem => item.Descrição)
                     </td>
                     <td class="align-center">
-                        @Html.DisplayFor(modelItem => item.DataCadastroProd)
+                        @Html.DisplayFor(modelItem => item.EstoqueMinimo)
+                    </td>
+                    <td class="align-center">
+                        @Html.DisplayFor(modelItem => item.UnidadeMedida)
                     </td>
                     <td class="align-center">
                         <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.CodProduto">Editar</a>
