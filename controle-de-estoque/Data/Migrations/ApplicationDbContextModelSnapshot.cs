@@ -116,10 +116,12 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.EstoqueProduto", b =>
                 {
                     b.Property<int>("EstoqueId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(0);
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("Qtde")
                         .HasColumnType("INTEGER");
@@ -184,10 +186,12 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.InventarioProduto", b =>
                 {
                     b.Property<int>("IdInv")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(0);
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(1);
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
@@ -243,10 +247,12 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
                 {
                     b.Property<int>("IdFornecedor")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(0);
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnOrder(1);
 
                     b.Property<DateOnly>("DataRecebimento")
                         .HasColumnType("TEXT");
