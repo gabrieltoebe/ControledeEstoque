@@ -22,14 +22,20 @@ namespace Control_Estoque.Controllers
         // GET: EstoqueProduto
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.EstoqueProduto.Include(e => e.Estoque).Include(e => e.Produto);
+            var applicationDbContext = _context.EstoqueProduto.Include(e => e.Estoque).Include(p => p.Produto);
+
             return View(await applicationDbContext.ToListAsync());
+
+
         }
 
+
         // GET: EstoqueProduto/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? Estoque, int? Produto)
         {
-            if (id == null)
+            var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
+
+            if (Estoque == null || Produto == null)
             {
                 return NotFound();
             }
@@ -37,7 +43,8 @@ namespace Control_Estoque.Controllers
             var estoqueProduto = await _context.EstoqueProduto
                 .Include(e => e.Estoque)
                 .Include(e => e.Produto)
-                .FirstOrDefaultAsync(m => m.EstoqueId == id);
+                .FirstOrDefaultAsync(m => m.EstoqueId == Estoque && m.CodProduto == Produto);
+
             if (estoqueProduto == null)
             {
                 return NotFound();
@@ -49,8 +56,8 @@ namespace Control_Estoque.Controllers
         // GET: EstoqueProduto/Create
         public IActionResult Create()
         {
-            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque");
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
+            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
             return View();
         }
 
@@ -61,32 +68,36 @@ namespace Control_Estoque.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
+            ModelState.Remove("Estoque");
+            ModelState.Remove("Produto");
+
             if (ModelState.IsValid)
             {
                 _context.Add(estoqueProduto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", estoqueProduto.EstoqueId);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", estoqueProduto.CodProduto);
+            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
             return View(estoqueProduto);
         }
 
         // GET: EstoqueProduto/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? Estoque, int? Produto)
         {
-            if (id == null)
+            if (Estoque == null || Produto == null)
             {
                 return NotFound();
             }
 
-            var estoqueProduto = await _context.EstoqueProduto.FindAsync(id);
-            if (estoqueProduto == null)
+            var estoqueProduto = await _context.EstoqueProduto.FindAsync(Estoque, Produto);
+
+            if (estoqueProduto == null || Produto == null)
             {
                 return NotFound();
             }
-            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", estoqueProduto.EstoqueId);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", estoqueProduto.CodProduto);
+            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
             return View(estoqueProduto);
         }
 
@@ -95,12 +106,17 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
+        public async Task<IActionResult> Edit(int? EstoqueId, int? CodProduto, [Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
-            if (id != estoqueProduto.EstoqueId)
+            //var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
+
+            if (estoqueProduto.EstoqueId != EstoqueId || estoqueProduto.CodProduto != CodProduto)
             {
                 return NotFound();
             }
+
+            ModelState.Remove("Estoque");
+            ModelState.Remove("Produto");
 
             if (ModelState.IsValid)
             {
@@ -122,15 +138,15 @@ namespace Control_Estoque.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", estoqueProduto.EstoqueId);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", estoqueProduto.CodProduto);
+            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
             return View(estoqueProduto);
         }
 
         // GET: EstoqueProduto/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? Estoque, int? Produto)
         {
-            if (id == null)
+            if (Estoque == null || Produto == null)
             {
                 return NotFound();
             }
@@ -138,7 +154,7 @@ namespace Control_Estoque.Controllers
             var estoqueProduto = await _context.EstoqueProduto
                 .Include(e => e.Estoque)
                 .Include(e => e.Produto)
-                .FirstOrDefaultAsync(m => m.EstoqueId == id);
+                .FirstOrDefaultAsync(m => m.EstoqueId == Estoque && m.CodProduto == Produto);
             if (estoqueProduto == null)
             {
                 return NotFound();

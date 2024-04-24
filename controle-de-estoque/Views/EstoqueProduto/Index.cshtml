@@ -28,18 +28,18 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Estoque.IdEstoque)
+                @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.CodProduto)
+                @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Qtde)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto }) |
+                @Html.ActionLink("Details", "Details", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto }) |
+                @Html.ActionLink("Delete", "Delete", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })
             </td>
         </tr>
 }
