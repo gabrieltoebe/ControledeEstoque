@@ -70,4 +70,6 @@ public DbSet<Control_Estoque.Models.Inventario> Inventario { get; set; } = defau
 public DbSet<Control_Estoque.Models.EstoqueProduto> EstoqueProduto { get; set; } = default!;
 
 public DbSet<Control_Estoque.Models.ProdutoFornecedorReceb> ProdutoFornecedorReceb { get; set; } = default!;
+
+public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
 }
