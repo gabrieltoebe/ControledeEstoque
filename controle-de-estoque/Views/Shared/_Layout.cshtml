@@ -17,8 +17,8 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse style="display: flex; flex-direction: column;">
+                    <ul class="navbar-nav flex-grow-1" style="flex-wrap: wrap;>
                         <li  home_button">
                             <a class="button-22 text-white" style="margin-left:30px;" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
@@ -39,6 +39,12 @@
                         </li>
                         <li home_button">
                             <a class="button-22 text-white" asp-area="" asp-controller="EstoqueProduto" asp-action="Index">EstoqueProduto</a>
+                        </li>
+                        <li home_button">
+                            <a class="button-22 text-white" asp-area="" asp-controller="InventarioProduto" asp-action="Index">InventarioProduto</a>
+                        </li>
+                        <li home_button">
+                            <a class="button-22 text-white" asp-area="" asp-controller="ProdutoFornecedorRecebs" asp-action="Index">ProdutoFornecedor</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
