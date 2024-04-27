@@ -32,6 +32,11 @@
                 <span asp-validation-for="EstoqueMinimo" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="EstoqueMaximo" class="form-label">Quantidade máxima no estoque</label>
+                <input type="number" asp-for="EstoqueMaximo" class="form-control" />
+                <span asp-validation-for="EstoqueMaximo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="ValidadeDias" class="form-label">Validade de dias (após fabricação)</label>
                 <input type="number" asp-for="ValidadeDias" class="form-control" />
                 <span asp-validation-for="ValidadeDias" class="text-danger"></span>

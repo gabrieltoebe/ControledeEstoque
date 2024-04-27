@@ -211,6 +211,9 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("EstoqueMaximo")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("EstoqueMinimo")
                         .HasColumnType("INTEGER");
 

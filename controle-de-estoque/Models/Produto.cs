@@ -11,8 +11,10 @@ public partial class Produto
     public string NomeProduto { get; set; } = null!;
 
     public string Descrição { get; set; } = null!;
-    public int EstoqueMinimo { get; set; } 
-    //public string? IdEstoque { get; set; } 
+    public int EstoqueMinimo { get; set; }
+
+    public int EstoqueMaximo { get; set; }
+
     public int ValidadeDias { get; set; } 
     public string UnidadeMedida { get; set; } = null!;
 
