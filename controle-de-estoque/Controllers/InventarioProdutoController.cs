@@ -27,9 +27,9 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: InventarioProduto/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? Inventario, int? Produto)
         {
-            if (id == null)
+            if (Inventario == null || Produto == null)
             {
                 return NotFound();
             }
@@ -37,7 +37,8 @@ namespace Control_Estoque.Controllers
             var inventarioProduto = await _context.InventarioProduto
                 .Include(i => i.Inventario)
                 .Include(i => i.Produto)
-                .FirstOrDefaultAsync(m => m.IdInv == id);
+                .FirstOrDefaultAsync(m => m.IdInv == Inventario && m.CodProduto == Produto);
+
             if (inventarioProduto == null)
             {
                 return NotFound();

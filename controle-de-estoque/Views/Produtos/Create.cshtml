@@ -22,11 +22,9 @@
                 <span asp-validation-for="Descrição" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EstoqueID" class="control-label">Estoque</label>
-                <select asp-for="EstoqueID" class="form-control" asp-items="ViewBag.EstoqueItems">
-                    <option value=""></option>
-                </select>
-                <span asp-validation-for="EstoqueID" class="text-danger"></span>
+                <label asp-for="IdEstoque" class="control-label">Estoque</label>
+                <select asp-for="IdEstoque" class="form-control" asp-items="ViewBag.IdEstoque"></select>
+                <span asp-validation-for="IdEstoque" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EstoqueMinimo" class="form-label">Quantidade mínima no estoque</label>

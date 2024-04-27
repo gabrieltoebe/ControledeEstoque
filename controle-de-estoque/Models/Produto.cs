@@ -12,7 +12,7 @@ public partial class Produto
 
     public string Descrição { get; set; } = null!;
     public int EstoqueMinimo { get; set; } 
-    public string EstoqueID { get; set; } 
+    //public string? IdEstoque { get; set; } 
     public int ValidadeDias { get; set; } 
     public string UnidadeMedida { get; set; } = null!;
 
@@ -26,4 +26,6 @@ public partial class Produto
     public virtual ICollection<ProdutoFornecedorReceb> ProdutoFornecedorRecebs { get; set; } = new List<ProdutoFornecedorReceb>();
 
     public virtual ICollection<EstoqueProduto> EstoqueProdutos { get; set; } = new List<EstoqueProduto>();
+
+    public virtual ICollection<Estoque> IdEstoque { get; set; } = new List<Estoque>();
 }

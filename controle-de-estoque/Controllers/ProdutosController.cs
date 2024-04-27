@@ -50,6 +50,7 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public IActionResult Create()
         {
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             return View();
         }
 
@@ -61,8 +62,10 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Create([Bind("CodProduto,NomeProduto,Descrição,EstoqueMinimo,ValidadeDias,UnidadeMedida")] Produto produto)
         {
-            var estoqueList = _context.Estoque.ToList();
-            ViewBag.EstoqueItems = new SelectList(estoqueList,"NomeEstoque");
+            //var estoqueList = _context.Estoque.ToList();
+            //ViewBag.IdEstoque = new SelectList(estoqueList,"NomeEstoque");
+
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
 
             ModelState.Remove("Cpf");
             ModelState.Remove("DataCadastroProd");
@@ -73,6 +76,7 @@ namespace Control_Estoque.Controllers
                 produto.UnidadeMedida = produto.UnidadeMedida?.ToUpper();
                 var username = User.Identity.Name;
                 var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                produto.IdEstoque = produto.IdEstoque;
                 produto.Cpf = currentUser;
                 produto.DataCadastroProd = DateTime.Now;
 
@@ -80,6 +84,7 @@ namespace Control_Estoque.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             return View(produto);
         }
 
