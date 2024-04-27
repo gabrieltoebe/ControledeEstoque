@@ -51,7 +51,7 @@ namespace Control_Estoque.Controllers
         public IActionResult Create()
         {
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv");
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
             return View();
         }
 

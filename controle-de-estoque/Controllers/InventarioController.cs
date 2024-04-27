@@ -46,7 +46,8 @@ namespace Control_Estoque.Controllers
         // GET: Inventario/Create
         public IActionResult Create()
         {
-            
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            ViewData["TipoMov"] = new SelectList(_context.Inventario, "TipoMov", "TipoMov");
             return View();
         }
 
@@ -55,7 +56,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdInv,IdMovimento,IdEstoque,TipoMov,DataMov")] Inventario inventario)
+        public async Task<IActionResult> Create([Bind("IdInv,IdEstoque,TipoMov,DataMov")] Inventario inventario)
         {
             if (ModelState.IsValid)
             {

@@ -49,8 +49,8 @@ namespace Control_Estoque.Controllers
         // GET: ProdutoFornecedorRecebs/Create
         public IActionResult Create()
         {
-            ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "IdFornecedor");
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
+            ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
             return View();
         }
 
