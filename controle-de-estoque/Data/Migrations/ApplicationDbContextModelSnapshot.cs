@@ -160,12 +160,20 @@ namespace Control_Estoque.Data.Migrations
                     b.Property<DateOnly>("DataMov")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("EstoqueIdEstoque")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdEstoque")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("TipoMov")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdInv");
 
                     b.HasIndex("CpfId");
+
+                    b.HasIndex("EstoqueIdEstoque");
 
                     b.ToTable("Inventario");
                 });
@@ -254,21 +262,6 @@ namespace Control_Estoque.Data.Migrations
                     b.HasIndex("CodProduto");
 
                     b.ToTable("ProdutoFornecedorReceb");
-                });
-
-            modelBuilder.Entity("EstoqueInventario", b =>
-                {
-                    b.Property<int>("IdEstoque")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("InventariosIdInv")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("IdEstoque", "InventariosIdInv");
-
-                    b.HasIndex("InventariosIdInv");
-
-                    b.ToTable("EstoqueInventario");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -425,6 +418,10 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
+                    b.HasOne("Control_Estoque.Models.Estoque", null)
+                        .WithMany("Inventarios")
+                        .HasForeignKey("EstoqueIdEstoque");
+
                     b.Navigation("Cpf");
                 });
 
@@ -473,21 +470,6 @@ namespace Control_Estoque.Data.Migrations
                     b.Navigation("Fornecedor");
 
                     b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("EstoqueInventario", b =>
-                {
-                    b.HasOne("Control_Estoque.Models.Estoque", null)
-                        .WithMany()
-                        .HasForeignKey("IdEstoque")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Control_Estoque.Models.Inventario", null)
-                        .WithMany()
-                        .HasForeignKey("InventariosIdInv")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -544,6 +526,8 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.Estoque", b =>
                 {
                     b.Navigation("EstoqueProdutos");
+
+                    b.Navigation("Inventarios");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.Fornecedor", b =>

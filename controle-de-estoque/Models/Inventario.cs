@@ -15,7 +15,7 @@ public partial class Inventario
     [Key]
     public int IdInv { get; set; }
 
-    //public int IdEstoque { get; set; }
+    public int IdEstoque { get; set; }
 
     public ApplicationUser Cpf { get; set; } = null!;
 
@@ -29,5 +29,5 @@ public partial class Inventario
 
     //public virtual ICollection<ApplicationUser> Cpf { get; set; } = new List<ApplicationUser>();
 
-    public virtual ICollection<Estoque>  IdEstoque { get; set; } = new List<Estoque>() ;
+    //public virtual ICollection<Estoque>  IdEstoque { get; set; } = new List<Estoque>() ;
 }

@@ -24,6 +24,7 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
+           
             return View(await _context.Produto.ToListAsync());
         }
 

@@ -66,7 +66,7 @@ namespace Control_Estoque.Controllers
                 var username = User.Identity.Name;
                 var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
                 inventario.Cpf = currentUser;
-                inventario.IdEstoque = inventario.IdEstoque;
+                //inventario.IdEstoque = IdEstoque;
 
                 _context.Add(inventario);
                 await _context.SaveChangesAsync();
