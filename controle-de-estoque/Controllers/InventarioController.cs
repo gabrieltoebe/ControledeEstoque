@@ -43,7 +43,7 @@ namespace Control_Estoque.Controllers
             return View(inventario);
         }
 
-        // GET: Inventario/Create inventario
+        // GET: Inventario/Create 
         public IActionResult Create()
         {
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
