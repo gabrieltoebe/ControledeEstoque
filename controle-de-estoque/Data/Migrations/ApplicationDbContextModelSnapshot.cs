@@ -44,6 +44,9 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("InventarioIdInv")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("INTEGER");
 
@@ -78,6 +81,8 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("InventarioIdInv");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -154,9 +159,6 @@ namespace Control_Estoque.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("CpfId")
-                        .HasColumnType("TEXT");
-
                     b.Property<DateOnly>("DataMov")
                         .HasColumnType("TEXT");
 
@@ -164,8 +166,6 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdInv");
-
-                    b.HasIndex("CpfId");
 
                     b.ToTable("Inventario");
                 });
@@ -400,6 +400,13 @@ namespace Control_Estoque.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Control_Estoque.Models.ApplicationUser", b =>
+                {
+                    b.HasOne("Control_Estoque.Models.Inventario", null)
+                        .WithMany("Cpf")
+                        .HasForeignKey("InventarioIdInv");
+                });
+
             modelBuilder.Entity("Control_Estoque.Models.EstoqueProduto", b =>
                 {
                     b.HasOne("Control_Estoque.Models.Produto", "Produto")
@@ -417,15 +424,6 @@ namespace Control_Estoque.Data.Migrations
                     b.Navigation("Estoque");
 
                     b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("Control_Estoque.Models.Inventario", b =>
-                {
-                    b.HasOne("Control_Estoque.Models.ApplicationUser", "Cpf")
-                        .WithMany()
-                        .HasForeignKey("CpfId");
-
-                    b.Navigation("Cpf");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.InventarioProduto", b =>
@@ -553,6 +551,8 @@ namespace Control_Estoque.Data.Migrations
 
             modelBuilder.Entity("Control_Estoque.Models.Inventario", b =>
                 {
+                    b.Navigation("Cpf");
+
                     b.Navigation("InventarioProdutos");
                 });
 

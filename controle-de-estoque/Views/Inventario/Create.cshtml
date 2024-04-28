@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Create";
+   
 }
 
 <h1>Create</h1>
@@ -22,14 +23,14 @@
                 <select asp-for="TipoMov" class="form-control">
                     @foreach (var tipoMov in ViewBag.TipoMov)
                     {
-                        <option value="@tipoMov">@tipoMov.ToString()</option>
+                        <option value="@tipoMov">@tipoMov</option>
                     }
                 </select>
 
             </div>
             <div class="form-group">
-                <label asp-for="DataMov" class="control-label"></label>
-                <input asp-for="DataMov" class="form-control" />
+                <label asp-for="DataMov" class="control-label">Data Programada</label>
+                <input asp-for="DataMov" class="form-control datepicker" />
                 <span asp-validation-for="DataMov" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -45,4 +46,8 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script> $(document).ready(function () {$(".datepicker").datepicker();});</script>
 }

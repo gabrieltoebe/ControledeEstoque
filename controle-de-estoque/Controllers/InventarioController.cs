@@ -56,8 +56,11 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdInv,IdEstoque,TipoMov,DataMov")] Inventario inventario)
+        public async Task<IActionResult> Create([Bind("IdInv,Cpf,IdEstoque,TipoMov,DataMov")] Inventario inventario)
         {
+            ModelState.Remove("IdInv");
+            ModelState.Remove("Cpf");
+
             if (ModelState.IsValid)
             {
                 _context.Add(inventario);
