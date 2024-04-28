@@ -112,7 +112,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição,UnidadeMedida")] Produto produto)
         {
             
             if (id != produto.CodProduto)
@@ -122,6 +122,8 @@ namespace Control_Estoque.Controllers
 
             ModelState.Remove("Cpf");
             ModelState.Remove("DataCadastroProd");
+            ModelState.Remove("UnidadeMedida");
+
             if (ModelState.IsValid)
             {
 
@@ -131,6 +133,7 @@ namespace Control_Estoque.Controllers
                     var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
                     produto.Cpf = currentUser;
                     produto.DataCadastroProd = DateTime.Now;
+                    produto.UnidadeMedida = produto.UnidadeMedida?.ToUpper();
 
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
