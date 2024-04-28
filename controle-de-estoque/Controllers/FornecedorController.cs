@@ -87,7 +87,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFornecedor,NomeFornecedor")] Fornecedor fornecedor)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFornecedor,NomeFornecedor,EnderecoFornecedor,EstadoFornecedor,TelefoneFornecedor")] Fornecedor fornecedor)
         {
             if (id != fornecedor.IdFornecedor)
             {

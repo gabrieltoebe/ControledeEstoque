@@ -19,7 +19,22 @@
                 <span asp-validation-for="NomeFornecedor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary btn_margin_form" />
+                <label asp-for="EnderecoFornecedor" class="control-label">Endereço do Fornecedor</label>
+                <input asp-for="EnderecoFornecedor" class="form-control" />
+                <span asp-validation-for="EnderecoFornecedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoFornecedor" class="control-label">Estado do Fornecedor</label>
+                <input asp-for="EstadoFornecedor" class="form-control" />
+                <span asp-validation-for="EstadoFornecedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefoneFornecedor" class="control-label">Telefone do Fornecedor</label>
+                <input asp-for="TelefoneFornecedor" class="form-control" />
+                <span asp-validation-for="TelefoneFornecedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-primary btn_margin_form" />
             </div>
         </form>
     </div>
