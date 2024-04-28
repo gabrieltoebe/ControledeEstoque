@@ -24,7 +24,7 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Produto.Include(e => e.IdEstoque);
+            var applicationDbContext = _context.Produto.Include(e => e.Estoque);
             return View(await applicationDbContext.ToListAsync());
 
             //return View(await _context.Produto.ToListAsync());
