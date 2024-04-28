@@ -24,6 +24,7 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "IdEstoque", "NomeProduto");
             return View(await _context.Estoque.ToListAsync());
         }
 

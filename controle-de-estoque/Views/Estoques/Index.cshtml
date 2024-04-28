@@ -13,6 +13,7 @@
 <table class="table table-sm table-striped table-bordered">
     <thead class="align-center">
         <tr>
+            <th>Código</th>
             <th>
                 Descrição
             </th>
@@ -30,6 +31,10 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.IdEstoque)
+            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.NomeEstoque)
             </td>

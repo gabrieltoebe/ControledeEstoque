@@ -51,6 +51,8 @@ namespace Control_Estoque.Controllers
         public IActionResult Create()
         {
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            
             return View();
         }
 
@@ -64,8 +66,6 @@ namespace Control_Estoque.Controllers
         {
             //var estoqueList = _context.Estoque.ToList();
             //ViewBag.IdEstoque = new SelectList(estoqueList,"NomeEstoque");
-
-            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
 
             ModelState.Remove("Cpf");
             ModelState.Remove("DataCadastroProd");

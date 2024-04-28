@@ -102,9 +102,6 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ProdutoCodProduto")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("QuantidadeDeItensNoEstoque")
                         .HasColumnType("INTEGER");
 
@@ -112,8 +109,6 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdEstoque");
-
-                    b.HasIndex("ProdutoCodProduto");
 
                     b.ToTable("Estoque");
                 });
@@ -215,6 +210,9 @@ namespace Control_Estoque.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("EstoqueMinimo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdEstoque")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("NomeProduto")
@@ -402,13 +400,6 @@ namespace Control_Estoque.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Control_Estoque.Models.Estoque", b =>
-                {
-                    b.HasOne("Control_Estoque.Models.Produto", null)
-                        .WithMany("IdEstoque")
-                        .HasForeignKey("ProdutoCodProduto");
-                });
-
             modelBuilder.Entity("Control_Estoque.Models.EstoqueProduto", b =>
                 {
                     b.HasOne("Control_Estoque.Models.Produto", "Produto")
@@ -568,8 +559,6 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.Produto", b =>
                 {
                     b.Navigation("EstoqueProdutos");
-
-                    b.Navigation("IdEstoque");
 
                     b.Navigation("InventarioProdutos");
 
