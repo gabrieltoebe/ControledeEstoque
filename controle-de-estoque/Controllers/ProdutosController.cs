@@ -60,7 +60,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Create([Bind("CodProduto,NomeProduto,Descrição,EstoqueMinimo,EstoqueMaximo,ValidadeDias,UnidadeMedida")] Produto produto)
+        public async Task<IActionResult> Create([Bind("CodProduto,NomeProduto,Descrição,EstoqueMinimo,EstoqueMaximo,IdEstoque,ValidadeDias,UnidadeMedida")] Produto produto)
         {
             //var estoqueList = _context.Estoque.ToList();
             //ViewBag.IdEstoque = new SelectList(estoqueList,"NomeEstoque");

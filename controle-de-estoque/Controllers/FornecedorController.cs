@@ -58,6 +58,7 @@ namespace Control_Estoque.Controllers
         {
             if (ModelState.IsValid)
             {
+                fornecedor.NomeFornecedor = fornecedor.NomeFornecedor?.ToUpper();
                 _context.Add(fornecedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

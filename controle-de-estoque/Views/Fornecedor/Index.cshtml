@@ -1,35 +1,40 @@
 ﻿@model IEnumerable<Control_Estoque.Models.Fornecedor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Fornecedores";
 }
 
-<h1>Index</h1>
+<h1 class="title" style="text-align: center;">Lista de fornecedores cadastrados</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeFornecedor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+
+<form asp-area="" asp-controller="Fornecedor" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo fornecedor</button>
+</form>
+
+<div style="overflow: auto; ">
+    <table class="table table-sm table-striped table-bordered ">
+        <thead class="align-center">
+            <tr>
+                <th>Código</th>               
+                <th>Fornecedor</th>               
+                <th>Opções</th>
+            </tr>
+        </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.IdFornecedor)
+            </td><td>
                 @Html.DisplayFor(modelItem => item.NomeFornecedor)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdFornecedor">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdFornecedor">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdFornecedor">Delete</a>
-            </td>
+                    <td class="align-center">
+                        <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IdFornecedor">Editar</a>
+                        @* <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdFornecedor">Detalhes</a> *@
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdFornecedor">Excluir</a>
+                    </td>
         </tr>
 }
     </tbody>
 </table>
+</div>
