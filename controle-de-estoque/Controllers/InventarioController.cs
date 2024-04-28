@@ -25,7 +25,7 @@ namespace Control_Estoque.Controllers
             return View(await _context.Inventario.ToListAsync());
         }
 
-        // GET: Inventario/Details/5
+        // GET: Inventario/Details/5 
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,7 +43,7 @@ namespace Control_Estoque.Controllers
             return View(inventario);
         }
 
-        // GET: Inventario/Create
+        // GET: Inventario/Create inventario
         public IActionResult Create()
         {
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
