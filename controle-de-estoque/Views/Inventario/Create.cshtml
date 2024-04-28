@@ -19,8 +19,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="TipoMov" class="control-label"></label>
-                <select asp-for="TipoMov" class="form-control" asp-items="ViewBag.TipoMov">></select>
-                <!--<span asp-validation-for="TipoMov" class="text-danger"></span>-->
+                <select asp-for="TipoMov" class="form-control">
+                    @foreach (var tipoMov in ViewBag.TipoMov)
+                    {
+                        <option value="@tipoMov">@tipoMov.ToString()</option>
+                    }
+                </select>
+
             </div>
             <div class="form-group">
                 <label asp-for="DataMov" class="control-label"></label>

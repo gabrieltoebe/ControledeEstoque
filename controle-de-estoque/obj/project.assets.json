@@ -8761,24 +8761,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\evandro.selau\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Nany\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\evandro.selau\\source\\repos\\ControledeEstoque\\controle-de-estoque\\Control_Estoque.csproj",
+      "projectUniqueName": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj",
       "projectName": "Control_Estoque",
-      "projectPath": "C:\\Users\\evandro.selau\\source\\repos\\ControledeEstoque\\controle-de-estoque\\Control_Estoque.csproj",
-      "packagesPath": "C:\\Users\\evandro.selau\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\evandro.selau\\source\\repos\\ControledeEstoque\\controle-de-estoque\\obj\\",
+      "projectPath": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj",
+      "packagesPath": "C:\\Users\\Nany\\.nuget\\packages\\",
+      "outputPath": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\evandro.selau\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Nany\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8867,7 +8862,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

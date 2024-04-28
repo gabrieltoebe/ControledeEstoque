@@ -47,7 +47,7 @@ namespace Control_Estoque.Controllers
         public IActionResult Create()
         {
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
-            ViewData["TipoMov"] = new SelectList(_context.Inventario, "TipoMov", "TipoMov");
+            ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
             return View();
         }
 

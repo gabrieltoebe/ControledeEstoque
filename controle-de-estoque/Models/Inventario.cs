@@ -5,8 +5,9 @@ namespace Control_Estoque.Models;
 
 public enum TipoMov
 {
-    entrada,
-    saida
+    Ambos,
+    Entrada,
+    Saida
 }
 
 public partial class Inventario
