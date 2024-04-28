@@ -63,6 +63,11 @@ namespace Control_Estoque.Controllers
 
             if (ModelState.IsValid)
             {
+                var username = User.Identity.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                inventario.Cpf = currentUser;
+                inventario.IdEstoque = inventario.IdEstoque;
+
                 _context.Add(inventario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
