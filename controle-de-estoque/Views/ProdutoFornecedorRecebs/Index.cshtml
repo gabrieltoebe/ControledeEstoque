@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<Control_Estoque.Models.ProdutoFornecedorReceb>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Recebimentos";
 }
+<h1 class="title" style="text-align: center;">Recebimentos</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<form asp-area="" asp-controller="ProdutoFornecedorRecebs" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo
+        produto</button>
+</form>
+<table class="table table-sm table-striped table-bordered ">
     <thead>
         <tr>
             <th>
@@ -19,22 +19,22 @@
                 @Html.DisplayNameFor(model => model.Produto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Qtde)
+                Quantidade
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataRecebimento)
+                Data recebimento
             </th>
-            <th></th>
+            <th> Opções</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Fornecedor.IdFornecedor)
+                @Html.DisplayFor(modelItem => item.Fornecedor.NomeFornecedor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.CodProduto)
+                @Html.DisplayFor(modelItem => item.Produto.Descrição)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Qtde)
@@ -47,6 +47,12 @@
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
+            <td class="align-center">
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.CodProduto">Editar</a>
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.CodProduto">Detalhes</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CodProduto">Excluir</a>
+            </td>
+            
         </tr>
 }
     </tbody>

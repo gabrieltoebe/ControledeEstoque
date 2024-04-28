@@ -1,19 +1,19 @@
 ﻿@model IEnumerable<Control_Estoque.Models.InventarioProduto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inventários";
 }
 
-<h1>Index</h1>
+<h1 class="title" style="text-align: center;">Movimentação de produtos por inventário</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<form asp-area="" asp-controller="InventarioProduto" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Adicionar movimentação</button>
+</form>
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Inventario)
+                Inventário
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Produto)
@@ -21,7 +21,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Quantidade)
             </th>
-            <th></th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
@@ -36,11 +36,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Quantidade)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+                <td class="align-center">
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdInv">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdInv">Excluir</a>
+                </td>
         </tr>
 }
     </tbody>

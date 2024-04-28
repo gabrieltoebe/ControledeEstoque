@@ -1,46 +1,45 @@
 ﻿@model IEnumerable<Control_Estoque.Models.Inventario>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Inventários";
 }
 
-<h1>Index</h1>
+<h1 class="title" style="text-align: center;">Inventários</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<form asp-area="" asp-controller="Inventario" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo inventário</button>
+</form>
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.IdEstoque)
+                Código estoque
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TipoMov)
+                Tipo movimentação (E / S)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DataMov)
+                Data movimentação
             </th>
-            <th></th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.IdEstoque)
             </td>
-            <td>
+                <td class="align-center">
                 @Html.DisplayFor(modelItem => item.TipoMov)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.DataMov)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdInv">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdInv">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdInv">Delete</a>
-            </td>
+                <td class="align-center">
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdInv">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdInv">Excluir</a>
+                </td>
         </tr>
 }
     </tbody>

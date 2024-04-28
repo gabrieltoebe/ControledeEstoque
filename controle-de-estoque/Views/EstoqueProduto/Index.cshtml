@@ -1,16 +1,17 @@
 ﻿@model IEnumerable<Control_Estoque.Models.EstoqueProduto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Movimentos de estoque";
 }
 
-<h1>Index</h1>
+<h1 class="title" style="text-align: center;">Entrada e saída de estoque</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<form asp-area="" asp-controller="EstoqueProduto" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Nova
+        entrada</button>
+</form>
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Estoque)
@@ -19,27 +20,26 @@
                 @Html.DisplayNameFor(model => model.Produto)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Qtde)
+                Quantidade
             </th>
-            <th></th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr >
             <td>
                 @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Qtde)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto }) |
-                @Html.ActionLink("Details", "Details", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto }) |
-                @Html.ActionLink("Delete", "Delete", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })
+            <td class="align-center ">
+                    <a href="@Url.Action("Edit", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })"
+                        class="btn btn-primary">Editar</a>                            
             </td>
         </tr>
 }

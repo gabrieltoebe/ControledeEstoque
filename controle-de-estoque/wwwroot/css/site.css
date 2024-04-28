@@ -143,7 +143,7 @@ body {
     justify-content: center;
     margin: 0;
     position: relative;
-    margin-left: 2px;
+    margin-left: 5px;
     padding: 10px 21px;
     text-align: center;
     text-transform: none;
@@ -223,4 +223,8 @@ body {
     font-size: 24px;
     font-family: system-ui;
     justify-content: center;
+}
+
+.btn_nav-secondary{
+    margin-top: 5px;
 }

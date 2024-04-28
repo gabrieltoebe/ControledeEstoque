@@ -1,23 +1,22 @@
 ﻿@model Control_Estoque.Models.InventarioProduto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Inventário por produto";
 }
 
-<h1>Create</h1>
+<h2 class="title">Inventário por produto</h2>
 
-<h4>InventarioProduto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdInv" class="control-label"></label>
+                <label asp-for="IdInv" class="control-label">Código inventário</label>
                 <select asp-for="IdInv" class ="form-control" asp-items="ViewBag.IdInv"></select>
             </div>
             <div class="form-group">
-                <label asp-for="CodProduto" class="control-label"></label>
+                <label asp-for="CodProduto" class="control-label">Produto</label>
                 <select asp-for="CodProduto" class ="form-control" asp-items="ViewBag.CodProduto"></select>
             </div>
             <div class="form-group">
@@ -26,14 +25,15 @@
                 <span asp-validation-for="Quantidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn btn-primary btn_margin_form"
+                    style="margin-top: 20px;" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-danger btn_margin_form" asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
