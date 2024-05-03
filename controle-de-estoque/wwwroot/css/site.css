@@ -133,7 +133,7 @@ body {
 .button-22 {
     align-items: center;
     appearance: button;
-    background-color: #0276FF;
+    background-color: #003675;
     border-radius: 8px;
     border-style: none;
     box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -234,48 +234,166 @@ body {
     margin-top: 5px;
 }
 
-/* Estilo do botão principal */
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
+/* Estilo do botï¿½o principal */
+.dropbtn {    
     padding: 16px;
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
 
-/* Container que mantém os itens do dropdown */
+/* Container que mantï¿½m os itens do dropdown */
 .dropdown {
     position: relative;
-    display: block;
+    display: inline;
 }
 
-/* Conteúdo escondido */
+/* Conteï¿½do escondido */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #f9f9f900;
+    min-width:8%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
     z-index: 1;
+    padding: 1%;
+    margin-top: 4%;
 }
 
-    /* Conteúdo do dropdown (botões) */
-    .dropdown-content button {
+    /* Conteï¿½do do dropdown (botï¿½es) */
+    .a-content {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
+        position:sticky;
+        display: inline-block;
+        width: 30%;
+        margin-left: 59%;
+        margin-bottom: 5px;
+    }
+
+     /* Mostrar o dropdown quando o botï¿½o principal ï¿½ focado ou mouse hover */
+    .dropbtn:focus+.dropdown-content,
+    .dropbtn:hover+.dropdown-content,
+    .dropdown-content:hover,
+    .dropdown:focus-within .dropdown-content {
         display: block;
     }
 
-    /* Mostrar o dropdown quando o botão principal é focado ou mouse hover */
-    .dropbtn:focus + .dropdown-content,
-    .dropbtn:hover + .dropdown-content,
-    .dropdown-content:hover {
-        display: block;
-    }
-
-    /* Estilo ao passar o mouse sobre os botões do dropdown */
+    /* Estilo ao passar o mouse sobre os botï¿½es do dropdown */
     .dropdown-content button:hover {
         background-color: #ddd;
     }
+    
+    
+/* Conteï¿½do escondido */
+.dropdown-consultas {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f900;
+    min-width:8%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+    z-index: 1;
+    padding: 1%;
+    margin-top: 4%;
+}
+
+    /* Conteï¿½do do dropdown (botï¿½es) */
+    .a-consultas {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        position:sticky;
+        display: inline-block;
+        width: 30%;
+        margin-left: 97%;
+        margin-bottom: 5px;
+    }
+
+     /* Mostrar o dropdown quando o botï¿½o principal ï¿½ focado ou mouse hover */
+    .dropbtn:focus+.dropdown-consultas,
+    .dropbtn:hover+.dropdown-consultas,
+    .dropdown-consultas:hover,
+    .dropdown:focus-within .dropdown-consultas {
+        display: block;
+    }
+
+    /* Estilo ao passar o mouse sobre os botï¿½es do dropdown */
+    .dropdown-consultas button:hover {
+        background-color: #ddd;
+    }   
+
+/* Conteï¿½do escondido */
+.dropdown-movimentacoes {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f900;
+    min-width:8%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+    z-index: 1;
+    padding: 1%;
+    margin-top: 3.7%;
+}
+
+    /* Conteï¿½do do dropdown (botï¿½es) */
+    .a-movimentacoes {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        position:sticky;
+        display: inline-block;
+        width: 35%;
+        margin-left: 139%;
+        margin-bottom: 3px;
+    }
+
+     /* Mostrar o dropdown quando o botï¿½o principal ï¿½ focado ou mouse hover */
+    .dropbtn:focus+.dropdown-movimentacoes,
+    .dropbtn:hover+.dropdown-movimentacoes,
+    .dropdown-movimentacoes:hover,
+    .dropdown:focus-within .dropdown-movimentacoes {
+        display: block;
+    }
+
+    /* Estilo ao passar o mouse sobre os botï¿½es do dropdown */
+    .dropdown-movimentacoes button:hover {
+        background-color: #ddd;
+    }
+   
+.button-23 {
+    align-items: center;
+    appearance: button;
+    background-color: #032245;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-size: 100%;
+    line-height: 1.15;
+    justify-content: center;
+    margin: 0;
+    position: relative;
+    margin-left: 5px;
+    padding: 10px 21px;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    user-select: none;
+    width: 146px;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-23:active {
+    background-color: #00142b;
+}
+
+.button-23:hover {
+    background-color: #013575;
+}
