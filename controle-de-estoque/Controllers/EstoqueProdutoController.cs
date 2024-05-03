@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Drawing.Text;
 
 namespace Control_Estoque.Controllers
 {
@@ -19,6 +20,10 @@ namespace Control_Estoque.Controllers
         {
             _context = context;
         }
+
+        
+
+        
 
         // GET: EstoqueProduto
         [Authorize]
@@ -73,18 +78,30 @@ namespace Control_Estoque.Controllers
         [Authorize]
         public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
-            ModelState.Remove("Estoque");
-            ModelState.Remove("Produto");
-
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(estoqueProduto);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
+                ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
+
+                ModelState.Remove("Estoque");
+                ModelState.Remove("Produto");
+                ModelState.Remove("Cpf");
+
+                if (ModelState.IsValid)
+                {
+                    _context.Add(estoqueProduto);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }else
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+                
+            }catch(Exception ex)
+            {
+               Console.WriteLine(ex.ToString());
             }
-            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
-            return View(estoqueProduto);
+                return View(estoqueProduto);
         }
 
         // GET: EstoqueProduto/Edit/5
@@ -116,12 +133,13 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> Edit(int? EstoqueId, int? CodProduto, [Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
             //var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
-
+            
             if (estoqueProduto.EstoqueId != EstoqueId || estoqueProduto.CodProduto != CodProduto)
             {
                 return NotFound();
             }
-
+            
+            ModelState.Remove("Cpf");
             ModelState.Remove("Estoque");
             ModelState.Remove("Produto");
 
@@ -147,6 +165,7 @@ namespace Control_Estoque.Controllers
             }
             ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
+         
             return View(estoqueProduto);
         }
 

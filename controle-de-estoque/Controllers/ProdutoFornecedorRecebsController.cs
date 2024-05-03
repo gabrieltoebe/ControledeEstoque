@@ -64,16 +64,25 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("IdFornecedor,CodProduto,Qtde,DataRecebimento")] ProdutoFornecedorReceb produtoFornecedorReceb)
+        public async Task<IActionResult> Create([Bind("IdFornecedor,CodProduto,Qtde")] ProdutoFornecedorReceb produtoFornecedorReceb)
         {
+            ModelState.Remove("Cpf");
+            ModelState.Remove("DataRecebimento");
+            ModelState.Remove("IdEstoque");
             if (ModelState.IsValid)
             {
+                //var username = User.Identity?.Name;
+                //var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                //var produtoIdEstoque = _context.Produto.FirstOrDefault(pid => pid.CodProduto == produtoFornecedorReceb.CodProduto);
+
+                //produtoFornecedorReceb.Cpf = currentUser ?? new();
+                produtoFornecedorReceb.DataRecebimento = DateTime.Now;
+                produtoFornecedorReceb.IdEstoque = 10; //produtoIdEstoque.IdEstoque;
+
                 _context.Add(produtoFornecedorReceb);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "IdFornecedor", produtoFornecedorReceb.IdFornecedor);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", produtoFornecedorReceb.CodProduto);
             return View(produtoFornecedorReceb);
         }
 

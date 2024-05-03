@@ -24,5 +24,5 @@ public class ProdutoFornecedorReceb
 
     public int Qtde { get; set; }
 
-    public DateOnly DataRecebimento { get; set; }
+    public DateTime DataRecebimento { get; set; }
 }
