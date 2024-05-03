@@ -58,18 +58,26 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             .HasOne(ip => ip.Produto)
             .WithMany(p => p.InventarioProdutos)
             .HasForeignKey(ip => ip.CodProduto);
+
+            modelBuilder.Entity<Produto>()
+            .HasOne(p => p.Estoque) 
+            .WithMany(e => e.Produtos) 
+            .HasForeignKey(p => p.IdEstoque) 
+            .OnDelete(DeleteBehavior.Cascade);  
+
+
     }
     public DbSet<Control_Estoque.Models.Produto> Produto { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.Fornecedor> Fornecedor { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.Fornecedor> Fornecedor { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.Estoque> Estoque { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.Estoque> Estoque { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.Inventario> Inventario { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.Inventario> Inventario { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.EstoqueProduto> EstoqueProduto { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.EstoqueProduto> EstoqueProduto { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.ProdutoFornecedorReceb> ProdutoFornecedorReceb { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.ProdutoFornecedorReceb> ProdutoFornecedorReceb { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
 }

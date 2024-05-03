@@ -94,9 +94,10 @@ body {
     justify-content: center;
     vertical-align: middle;
 }
-.align-left{
+.align-left {
     text-align: left;
     vertical-align: middle;
+    justify-content: center;
 }
 .align-right{
     text-align: right;

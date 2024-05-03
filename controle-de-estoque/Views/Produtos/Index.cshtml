@@ -27,10 +27,10 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>
+                    <td class ="align-left">
                         @Html.DisplayFor(modelItem => item.CodProduto)
                     </td>
-                    <td>
+                    <td class="align-left">
                         @Html.DisplayFor(modelItem => item.NomeProduto)
                     </td>
                     <td class="align-center">
@@ -43,7 +43,7 @@
                         @Html.DisplayFor(modelItem => item.EstoqueMaximo)
                     </td>
                     <td class="align-center">
-                        @ViewData["NomeEstoque"]
+                        @item?.Estoque?.NomeEstoque
                        </td>                    
                     <td class="align-center">
                         @Html.DisplayFor(modelItem => item.UnidadeMedida)

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Control_Estoque.Models;
 
@@ -29,5 +30,8 @@ public partial class Produto
     public virtual ICollection<ProdutoFornecedorReceb> ProdutoFornecedorRecebs { get; set; } = new List<ProdutoFornecedorReceb>();
 
     public virtual ICollection<EstoqueProduto> EstoqueProdutos { get; set; } = new List<EstoqueProduto>();
+    public virtual ICollection<Estoque>? Estoques { get; set; }
 
+    // Chave estrangeira para Estoque
+    public virtual Estoque? Estoque { get; set; }
 }

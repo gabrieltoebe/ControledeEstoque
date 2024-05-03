@@ -19,4 +19,5 @@ public partial class Estoque
 
     public virtual ICollection<EstoqueProduto>? EstoqueProdutos { get; set; }
     public virtual ICollection<ProdutoFornecedorReceb>? ProdutoFornecedorRecebs { get; set; }
+    public virtual ICollection<Produto>? Produtos { get; set; }
 }

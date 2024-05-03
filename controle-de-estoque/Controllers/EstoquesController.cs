@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
+using Control_Estoque.Data.Migrations;
 
 namespace Control_Estoque.Controllers
 {
@@ -61,20 +62,23 @@ namespace Control_Estoque.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdEstoque,NomeEstoque,TipoEstoque,QuantidadeDeItensNoEstoque, AtivEstoque")] Estoque estoque)
         {
-            ModelState.Remove("IdEstoque");
             ModelState.Remove("TipoEstoque");
-            ModelState.Remove("QuantidadeDeItensNoEstoque");
+            ModelState.Remove("Cpf");
 
             if (ModelState.IsValid)
             {
-                estoque.NomeEstoque = estoque.NomeEstoque?.ToUpper();       
-
+                estoque.NomeEstoque = estoque.NomeEstoque.ToUpper();
                 estoque.TipoEstoque = 1;
                 estoque.QuantidadeDeItensNoEstoque = 0;
+                estoque.AtivEstoque = true;
 
                 _context.Add(estoque);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                Console.WriteLine("Erro ao gravar");
             }
             return View(estoque);
         }
@@ -102,8 +106,10 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Edit(int id, [Bind("IdEstoque,NomeEstoque,TipoEstoque,AtivEstoque")] Estoque estoque)
+        public async Task<IActionResult> Edit(int id, [Bind("IdEstoque,NomeEstoque,TipoEstoque,QuantidadeDeItensNoEstoque, AtivEstoque")] Estoque estoque)
         {
+            ModelState.Remove("TipoEstoque");
+            ModelState.Remove("Cpf");
             if (id != estoque.IdEstoque)
             {
                 return NotFound();

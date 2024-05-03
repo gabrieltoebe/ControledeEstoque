@@ -105,6 +105,9 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("ProdutoCodProduto")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("QuantidadeDeItensNoEstoque")
                         .HasColumnType("INTEGER");
 
@@ -114,6 +117,8 @@ namespace Control_Estoque.Data.Migrations
                     b.HasKey("IdEstoque");
 
                     b.HasIndex("CpfId");
+
+                    b.HasIndex("ProdutoCodProduto");
 
                     b.ToTable("Estoque");
                 });
@@ -259,6 +264,8 @@ namespace Control_Estoque.Data.Migrations
                     b.HasKey("CodProduto");
 
                     b.HasIndex("CpfId");
+
+                    b.HasIndex("IdEstoque");
 
                     b.ToTable("Produto");
                 });
@@ -432,6 +439,10 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
+                    b.HasOne("Control_Estoque.Models.Produto", null)
+                        .WithMany("Estoques")
+                        .HasForeignKey("ProdutoCodProduto");
+
                     b.Navigation("Cpf");
                 });
 
@@ -498,7 +509,15 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
+                    b.HasOne("Control_Estoque.Models.Estoque", "Estoque")
+                        .WithMany("Produtos")
+                        .HasForeignKey("IdEstoque")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Cpf");
+
+                    b.Navigation("Estoque");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
@@ -592,6 +611,8 @@ namespace Control_Estoque.Data.Migrations
                     b.Navigation("Inventarios");
 
                     b.Navigation("ProdutoFornecedorRecebs");
+
+                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.Fornecedor", b =>
@@ -607,6 +628,8 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.Produto", b =>
                 {
                     b.Navigation("EstoqueProdutos");
+
+                    b.Navigation("Estoques");
 
                     b.Navigation("InventarioProdutos");
 

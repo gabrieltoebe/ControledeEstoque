@@ -22,12 +22,11 @@ namespace Control_Estoque.Controllers
 
         // GET: Produtos
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Index(int id)
+        public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Produto.Include(e => e.Estoque);
-            return View(await applicationDbContext.ToListAsync());
-
-            //return View(await _context.Produto.ToListAsync());
+            var ProdutosComNomesDosEstoques = await _context.Produto.Include(p => p.Estoque).ToListAsync();
+            
+            return View(ProdutosComNomesDosEstoques);
         }
 
         // GET: Produtos/Details/5
@@ -95,6 +94,8 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Edit(int? id)
         {
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             if (id == null)
             {
                 return NotFound();
@@ -114,9 +115,9 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição,UnidadeMedida")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("CodProduto,NomeProduto,Descrição,EstoqueMinimo,EstoqueMaximo,IdEstoque,ValidadeDias,UnidadeMedida")] Produto produto)
         {
-            
+
             if (id != produto.CodProduto)
             {
                 return NotFound();
@@ -131,11 +132,14 @@ namespace Control_Estoque.Controllers
 
                 try
                 {
+                    produto.NomeProduto = produto.NomeProduto.ToUpper();
+                    produto.Descrição = produto.Descrição.ToUpper();
+                    produto.UnidadeMedida = produto.UnidadeMedida.ToUpper();
                     var username = User.Identity?.Name;
                     var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                    produto.IdEstoque = produto.IdEstoque;
                     produto.Cpf = currentUser ?? new();
                     produto.DataCadastroProd = DateTime.Now;
-                    produto.UnidadeMedida = produto.UnidadeMedida?.ToUpper();
 
                     _context.Update(produto);
                     await _context.SaveChangesAsync();
