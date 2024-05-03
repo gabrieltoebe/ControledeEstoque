@@ -1,4 +1,4 @@
-﻿@model Control_Estoque.Models.Estoque
+﻿@model Control_Estoque.Models.EstoqueProdutosViewModel
 
 @{
     ViewData["Title"] = "Detalhes";
@@ -7,28 +7,21 @@
 <h1 class="title">Detalhes do estoque</h1>
 
 <div>
-    <h4 class="subtitle">Estoque número: @Html.DisplayFor(model => model.IdEstoque)</h4>
+    <h4 class="subtitle">Estoque número: @Html.DisplayFor(model => model.EstoqueId)</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Descrição:
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NomeEstoque)
         </dd>
 
-        <dt class = "col-sm-2">
-            Quantidade de produtos:
+        <dt class="col-sm-2">
+            Status:
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.QuantidadeDeItensNoEstoque)
-        </dd>
-
-        <dt class = "col-sm-2">
-            Ativo:  
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AtivEstoque)
+        <dd class="col-sm-10">
+            @(Model.EstoqueAtivo ? "Ativo" : "Desativado")
         </dd>
     </dl>
 </div>
@@ -36,23 +29,28 @@
 <table class="table table-sm table-striped table-bordered">
     <thead class="align-center">
         <tr>
-            <th>
-                Produto
-            </th>
-            <th>
-                Quantidade no estoque
-            </th>
-            <th>
-                Quantidade mínima
-            </th>
-            
+            <th>Produto</th>
+            <th>Unidades</th>
+            <th>Quantidade no estoque</th>
+            <th>Mínima</th>
+            <th>Máxima</th>
         </tr>
     </thead>
     <tbody>
-        
+        @foreach (var produto in Model.Produtos)
+        {
+            <tr>
+                <td>@produto.DescricaoProduto</td>
+                <td class="align-center">@produto.UnidadeMed</td>
+                <td class="align-center">@produto.QuantidadeNoEstoque</td>
+                <td class="align-center">@produto.QuantidadeMinima</td>
+                <td class="align-center">@produto.QuantidadeMaxima</td>
+            </tr>
+        }
     </tbody>
 </table>
 
-<div> <a class="btn btn-primary btn_margin_form" asp-action="Edit" asp-route-id="@Model?.IdEstoque">Editar</a>
+<div>
+    <a class="btn btn-primary btn_margin_form" asp-action="Edit" asp-route-id="@Model.EstoqueId">Editar</a>
     <a class="btn btn-danger btn_margin_form" asp-action="Index">Voltar</a>
 </div>

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Control_Estoque.Models.Estoque>
+﻿@model IEnumerable<dynamic>
 
 @{
     ViewData["Title"] = "Estoques";
@@ -21,7 +21,7 @@
                 Produtos no estoque
             </th>
             <th>
-                Estoque ativo? 
+                Status
             </th>
             <th>
                 Opções
@@ -32,22 +32,22 @@
 @foreach (var item in Model) {
         <tr>
             <td class="align-center">
-                @Html.DisplayFor(modelItem => item.IdEstoque)
+                @item.EstoqueId
             </td>
             
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeEstoque)
+            <td class="align-left">
+                @item.NomeEstoque
             </td>
             <td class="align-center">
-                @Html.DisplayFor(modelItem => item.QuantidadeDeItensNoEstoque)
+                @item.QuantidadeDeProdutos
             </td>
             <td class="align-center">
-                @Html.DisplayFor(modelItem => item.AtivEstoque)
+                @(item.EstoqueAtivo ? "Ativo" : "Desativado")
             </td>
                 <td class="align-center">
-                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IdEstoque">Editar</a>
-                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdEstoque">Detalhes</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdEstoque">Excluir</a>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.EstoqueId">Editar</a>
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.EstoqueId">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.EstoqueId">Excluir</a>
                 </td>
         </tr>
 }

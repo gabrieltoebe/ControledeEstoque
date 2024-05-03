@@ -25,29 +25,55 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "IdEstoque", "NomeProduto");
-            return View(await _context.Estoque.ToListAsync());
+            var estoqueComContagemDeProdutos = await _context.Estoque
+             .Select(e => new
+             {
+                 EstoqueId = e.IdEstoque,
+                 NomeEstoque = e.NomeEstoque,
+                 QuantidadeDeProdutos = e.Produtos.Count,
+                 EstoqueAtivo = e.AtivEstoque
+             })
+             .ToListAsync();
+
+            return View(estoqueComContagemDeProdutos);
         }
 
         // GET: Estoques/Details/5
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int? Id)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return NotFound();
             }
 
-            var estoque = await _context.Estoque
-                .FirstOrDefaultAsync(m => m.IdEstoque == id);
-            if (estoque == null)
+            // Busca detalhes do estoque e os produtos associados
+            var estoqueComProdutos = await _context.Estoque
+                .Where(e => e.IdEstoque == Id)
+                .Select(e => new EstoqueProdutosViewModel
+                {
+                    EstoqueId = e.IdEstoque,
+                    NomeEstoque = e.NomeEstoque,
+                    EstoqueAtivo = e.AtivEstoque,
+                    Produtos = e.Produtos.Select(p => new ProdutosViewModel
+                    {
+                        CodProduto = p.CodProduto,
+                        DescricaoProduto = p.NomeProduto,
+                        QuantidadeMinima = p.EstoqueMinimo,
+                        UnidadeMed = p.UnidadeMedida,
+                        QuantidadeMaxima = p.EstoqueMaximo
+                    })
+                    .ToList()
+                }).FirstOrDefaultAsync();
+
+            if (estoqueComProdutos == null)
             {
                 return NotFound();
             }
 
-            return View(estoque);
+            return View(estoqueComProdutos);
         }
-
+    
         // GET: Estoques/Create
         [Authorize] // solo usuarios autenticados pueden crear productos
         public IActionResult Create()
