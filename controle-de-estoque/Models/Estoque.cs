@@ -17,4 +17,6 @@ public partial class Estoque
     public virtual ICollection<Inventario> Inventarios { get; set; } = new List<Inventario>();
 
     public virtual ICollection<EstoqueProduto>? EstoqueProdutos { get; set; }
+
+    public ICollection<Produto>? Produtos { get; set; }
 }

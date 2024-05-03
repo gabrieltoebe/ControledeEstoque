@@ -7,19 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
+    [Authorize]
     public class InventarioProdutoController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        
         public InventarioProdutoController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: InventarioProduto
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.InventarioProduto.Include(i => i.Inventario).Include(i => i.Produto);
@@ -27,6 +30,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: InventarioProduto/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? Inventario, int? Produto)
         {
             if (Inventario == null || Produto == null)
@@ -48,6 +52,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: InventarioProduto/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv");
@@ -60,6 +65,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("IdInv,CodProduto,Quantidade")] InventarioProduto inventarioProduto)
         {
             if (ModelState.IsValid)
@@ -74,6 +80,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: InventarioProduto/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +103,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("IdInv,CodProduto,Quantidade")] InventarioProduto inventarioProduto)
         {
             if (id != inventarioProduto.IdInv)
@@ -129,6 +137,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: InventarioProduto/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -151,6 +160,7 @@ namespace Control_Estoque.Controllers
         // POST: InventarioProduto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var inventarioProduto = await _context.InventarioProduto.FindAsync(id);

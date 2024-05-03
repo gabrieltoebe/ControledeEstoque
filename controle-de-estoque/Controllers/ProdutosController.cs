@@ -22,9 +22,11 @@ namespace Control_Estoque.Controllers
 
         // GET: Produtos
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
-           
+            var idestoqueproduto = await _context.Produto.FirstOrDefaultAsync(pid => pid.IdEstoque == id);
+            var nomeEstoque = await _context.Estoque.FirstOrDefaultAsync(n => n.IdEstoque == idestoqueproduto);
+            ViewData["NomeEstoque"] = nomeEstoque?.NomeEstoque;
             return View(await _context.Produto.ToListAsync());
         }
 
@@ -72,13 +74,13 @@ namespace Control_Estoque.Controllers
             ModelState.Remove("DataCadastroProd");
             if (ModelState.IsValid)            {       
 
-                produto.NomeProduto = produto.NomeProduto?.ToUpper();
-                produto.Descrição = produto.Descrição?.ToUpper();
-                produto.UnidadeMedida = produto.UnidadeMedida?.ToUpper();
-                var username = User.Identity.Name;
+                produto.NomeProduto = produto.NomeProduto.ToUpper();
+                produto.Descrição = produto.Descrição.ToUpper();
+                produto.UnidadeMedida = produto.UnidadeMedida.ToUpper();
+                var username = User.Identity?.Name;
                 var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
                 produto.IdEstoque = produto.IdEstoque;
-                produto.Cpf = currentUser;
+                produto.Cpf = currentUser ?? new();
                 produto.DataCadastroProd = DateTime.Now;
 
                 _context.Add(produto);
@@ -127,9 +129,9 @@ namespace Control_Estoque.Controllers
 
                 try
                 {
-                    var username = User.Identity.Name;
+                    var username = User.Identity?.Name;
                     var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
-                    produto.Cpf = currentUser;
+                    produto.Cpf = currentUser ?? new();
                     produto.DataCadastroProd = DateTime.Now;
 
                     _context.Update(produto);

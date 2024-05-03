@@ -12,7 +12,7 @@ namespace Control_Estoque.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240407024236_update-models")]
-    partial class updatemodels
+    partial class Updatemodels
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

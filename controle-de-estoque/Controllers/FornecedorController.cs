@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
@@ -20,12 +21,14 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Fornecedor
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Fornecedor.ToListAsync());
         }
 
         // GET: Fornecedor/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Fornecedor/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -58,7 +62,7 @@ namespace Control_Estoque.Controllers
         {
             if (ModelState.IsValid)
             {
-                fornecedor.NomeFornecedor = fornecedor.NomeFornecedor?.ToUpper();
+                fornecedor.NomeFornecedor = fornecedor.NomeFornecedor.ToUpper();
                 _context.Add(fornecedor);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -67,6 +71,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Fornecedor/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace Control_Estoque.Controllers
         // POST: Fornecedor/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdFornecedor,NomeFornecedor")] Fornecedor fornecedor)
@@ -118,6 +124,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Fornecedor/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +145,7 @@ namespace Control_Estoque.Controllers
         // POST: Fornecedor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var fornecedor = await _context.Fornecedor.FindAsync(id);

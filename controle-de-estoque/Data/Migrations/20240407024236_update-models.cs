@@ -5,7 +5,7 @@
 namespace Control_Estoque.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class updatemodels : Migration
+    public partial class Updatemodels : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

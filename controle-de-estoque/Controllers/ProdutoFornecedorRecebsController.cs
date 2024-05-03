@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
@@ -20,6 +21,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoFornecedorRecebs
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProdutoFornecedorReceb.Include(p => p.Fornecedor).Include(p => p.Produto);
@@ -27,6 +29,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoFornecedorRecebs/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -47,6 +50,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoFornecedorRecebs/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
@@ -59,6 +63,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("IdFornecedor,CodProduto,Qtde,DataRecebimento")] ProdutoFornecedorReceb produtoFornecedorReceb)
         {
             if (ModelState.IsValid)
@@ -73,6 +78,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoFornecedorRecebs/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -95,6 +101,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("IdFornecedor,CodProduto,Qtde,DataRecebimento")] ProdutoFornecedorReceb produtoFornecedorReceb)
         {
             if (id != produtoFornecedorReceb.IdFornecedor)
@@ -128,6 +135,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoFornecedorRecebs/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -148,6 +156,7 @@ namespace Control_Estoque.Controllers
         }
 
         // POST: ProdutoFornecedorRecebs/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

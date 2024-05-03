@@ -57,6 +57,10 @@ body {
     font-family: system-ui;
     margin-bottom: 10px;
 }
+.btn-lg {
+    width: 100%;
+    text-align:left;
+}
 
 .option {
     font-size: 10px;

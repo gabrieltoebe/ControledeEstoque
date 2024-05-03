@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
@@ -20,12 +21,14 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Inventario
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Inventario.ToListAsync());
         }
 
         // GET: Inventario/Details/5 
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +47,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Inventario/Create 
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
@@ -56,6 +60,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("IdInv,Cpf,IdEstoque,TipoMov,DataMov")] Inventario inventario)
         {
             ModelState.Remove("IdInv");
@@ -63,9 +68,9 @@ namespace Control_Estoque.Controllers
 
             if (ModelState.IsValid)
             {
-                var username = User.Identity.Name;
+                var username = User.Identity?.Name;
                 var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
-                inventario.Cpf = currentUser;
+                inventario.Cpf = currentUser ?? new();
                 //inventario.IdEstoque = IdEstoque;
 
                 _context.Add(inventario);
@@ -76,6 +81,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Inventario/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +102,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("IdInv,IdMovimento,IdEstoque,TipoMov,DataMov")] Inventario inventario)
         {
             if (id != inventario.IdInv)
@@ -127,6 +134,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: Inventario/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,6 +155,7 @@ namespace Control_Estoque.Controllers
         // POST: Inventario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var inventario = await _context.Inventario.FindAsync(id);

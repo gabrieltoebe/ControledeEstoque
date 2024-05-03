@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
@@ -20,6 +21,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: EstoqueProduto
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.EstoqueProduto.Include(e => e.Estoque).Include(p => p.Produto);
@@ -31,6 +33,7 @@ namespace Control_Estoque.Controllers
 
 
         // GET: EstoqueProduto/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? Estoque, int? Produto)
         {
             var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
@@ -54,6 +57,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: EstoqueProduto/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
@@ -66,6 +70,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
             ModelState.Remove("Estoque");
@@ -83,6 +88,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: EstoqueProduto/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? Estoque, int? Produto)
         {
             if (Estoque == null || Produto == null)
@@ -106,6 +112,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int? EstoqueId, int? CodProduto, [Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
         {
             //var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
@@ -144,6 +151,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: EstoqueProduto/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? Estoque, int? Produto)
         {
             if (Estoque == null || Produto == null)
@@ -166,6 +174,7 @@ namespace Control_Estoque.Controllers
         // POST: EstoqueProduto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var estoqueProduto = await _context.EstoqueProduto.FindAsync(id);
