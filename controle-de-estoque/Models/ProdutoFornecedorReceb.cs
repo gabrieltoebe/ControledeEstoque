@@ -15,6 +15,13 @@ public class ProdutoFornecedorReceb
     public int CodProduto { get; set; }
     public virtual required Produto Produto { get; set; } = null!;
 
+    [Key]
+    [Column(Order = 2)]
+    public int IdEstoque { get; set; }
+    public virtual required Estoque Estoque { get; set; } = null!;
+
+    public ApplicationUser Cpf { get; set; } = null!;
+
     public int Qtde { get; set; }
 
     public DateOnly DataRecebimento { get; set; }

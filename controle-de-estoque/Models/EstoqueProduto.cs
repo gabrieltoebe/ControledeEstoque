@@ -15,6 +15,8 @@ public class EstoqueProduto
     public int CodProduto { get; set; }
     public virtual required Produto Produto { get; set; }
 
+    public ApplicationUser Cpf { get; set; } = null!;
+
     public int Qtde { get; set; }
 
 }
