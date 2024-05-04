@@ -19,6 +19,30 @@
             @Html.DisplayFor(model => model.NomeFornecedor)
         </dd>
     </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Endereço:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EnderecoFornecedor)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Estado:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EstadoFornecedor)
+        </dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Telefone:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TelefoneFornecedor)
+        </dd>
+    </dl>
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdFornecedor" />
