@@ -17,343 +17,343 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Control_Estoque
 build_property.RootNamespace = Control_Estoque
-build_property.ProjectDir = D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial W\controle-de-estoque\
+build_property.ProjectDir = D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial W\controle-de-estoque
+build_property.MSBuildProjectDirectory = D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Lockout.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Lockout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Email.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/Error.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/EstoqueProduto/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/EstoqueProduto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVByb2R1dG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/EstoqueProduto/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/EstoqueProduto/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVByb2R1dG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/EstoqueProduto/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/EstoqueProduto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVByb2R1dG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/EstoqueProduto/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/EstoqueProduto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVByb2R1dG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/EstoqueProduto/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/EstoqueProduto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVByb2R1dG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Estoques/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Estoques/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Estoques/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Estoques/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Estoques/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Estoques/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Estoques/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Estoques/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Estoques/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Estoques/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Fornecedor/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Fornecedor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Fornecedor/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Fornecedor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Fornecedor/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Fornecedor/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Fornecedor/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Fornecedor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Fornecedor/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Fornecedor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9ybmVjZWRvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Home/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Home/Privacy.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/InventarioProduto/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/InventarioProduto/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1Byb2R1dG9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/InventarioProduto/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/InventarioProduto/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1Byb2R1dG9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/InventarioProduto/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/InventarioProduto/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1Byb2R1dG9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/InventarioProduto/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/InventarioProduto/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1Byb2R1dG9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/InventarioProduto/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/InventarioProduto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1Byb2R1dG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Inventario/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Inventario/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Inventario/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Inventario/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Inventario/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Inventario/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Inventario/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Inventario/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Inventario/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Inventario/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW52ZW50YXJpb1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0Zvcm5lY2Vkb3JSZWNlYnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0Zvcm5lY2Vkb3JSZWNlYnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0Zvcm5lY2Vkb3JSZWNlYnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0Zvcm5lY2Vkb3JSZWNlYnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/ProdutoFornecedorRecebs/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b0Zvcm5lY2Vkb3JSZWNlYnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Produtos/Create.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Produtos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Produtos/Delete.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Produtos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Produtos/Details.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Produtos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Produtos/Edit.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Produtos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Produtos/Index.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Produtos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Shared/Error.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Shared/_LoginPartial.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/_ViewImports.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/_ViewStart.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial W/controle-de-estoque/Views/Shared/_Layout.cshtml]
+[D:/Dany_Doc/9. Projeto Empreendedor I ADS/Oficial_W/controle-de-estoque/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-pvild2nc72

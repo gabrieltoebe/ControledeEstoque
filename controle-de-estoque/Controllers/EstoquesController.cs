@@ -61,7 +61,10 @@ namespace Control_Estoque.Controllers
                         DescricaoProduto = p.NomeProduto,
                         QuantidadeMinima = p.EstoqueMinimo,
                         UnidadeMed = p.UnidadeMedida,
-                        QuantidadeMaxima = p.EstoqueMaximo
+                        QuantidadeMaxima = p.EstoqueMaximo,
+                        QuantidadeNoEstoque = p.EstoqueProdutos
+                            .Where(ep => ep.CodProduto == p.CodProduto && ep.EstoqueId == Id)
+                            .Sum(ep => ep.Qtde)
                     })
                     .ToList()
                 }).FirstOrDefaultAsync();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj": {}
+    "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\Control_Estoque.csproj": {}
   },
   "projects": {
-    "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj": {
+    "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\Control_Estoque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj",
+        "projectUniqueName": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\Control_Estoque.csproj",
         "projectName": "Control_Estoque",
-        "projectPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj",
+        "projectPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\Control_Estoque.csproj",
         "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-        "outputPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\obj\\",
+        "outputPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
