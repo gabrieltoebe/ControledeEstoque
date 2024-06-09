@@ -2029,6 +2029,7 @@ D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque\obj\Debu
 D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.pdb
 D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.genruntimeconfig.cache
 D:\Dany_Doc\9. Projeto Empreendedor I ADS\Oficial_W\controle-de-estoque\obj\Debug\net8.0\ref\Control_Estoque.dll
+<<<<<<< HEAD
 D:\Dany_Doc\10. Projeto Emprededor II ADS\Oficial Correcao\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.csproj.AssemblyReference.cache
 D:\Dany_Doc\10. Projeto Emprededor II ADS\Oficial Correcao\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.GeneratedMSBuildEditorConfig.editorconfig
 D:\Dany_Doc\10. Projeto Emprededor II ADS\Oficial Correcao\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.AssemblyInfoInputs.cache
@@ -2900,3 +2901,5 @@ C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\refint\Con
 C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.pdb
 C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.genruntimeconfig.cache
 C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\ref\Control_Estoque.dll
+=======
+>>>>>>> origin/controle-de-estoque.v2
