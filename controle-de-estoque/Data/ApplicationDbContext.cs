@@ -16,7 +16,11 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
 
         base.OnModelCreating(modelBuilder);
+
+
+
         modelBuilder.Entity<IdentityUserLogin<string>>().HasKey(x => x.UserId);
+
 
         modelBuilder.Entity<EstoqueProduto>()
             .HasKey(ep => new { ep.EstoqueId, ep.CodProduto });
@@ -33,7 +37,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
 
         modelBuilder.Entity<ProdutoFornecedorReceb>()
-            .HasKey(pfr => new { pfr.IdFornecedor, pfr.CodProduto });
+            .HasKey(pfr => new { pfr.IdProdFornRec });
 
         modelBuilder.Entity<ProdutoFornecedorReceb>()
             .HasOne(pfr => pfr.Fornecedor)
@@ -45,25 +49,26 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             .WithMany(p => p.ProdutoFornecedorRecebs)
             .HasForeignKey(pfr => pfr.CodProduto);
 
+        modelBuilder.Entity<ProdutoFornecedorReceb>()
+           .HasOne(pfr => pfr.Estoque)
+           .WithMany(p => p.ProdutoFornecedorRecebs)
+           .HasForeignKey(pfr => pfr.IdEstoque);
+
 
         modelBuilder.Entity<InventarioProduto>()
-            .HasKey(ip => new { ip.IdInv, ip.CodProduto });
+            .HasKey(ip => new { ip.IdInvProd });
 
         modelBuilder.Entity<InventarioProduto>()
             .HasOne(ip => ip.Inventario)
             .WithMany(i => i.InventarioProdutos)
-            .HasForeignKey(ip => ip.IdInv);
+           .HasForeignKey(ip => ip.IdInv);
 
         modelBuilder.Entity<InventarioProduto>()
             .HasOne(ip => ip.Produto)
             .WithMany(p => p.InventarioProdutos)
             .HasForeignKey(ip => ip.CodProduto);
 
-            modelBuilder.Entity<Produto>()
-            .HasOne(p => p.Estoque) 
-            .WithMany(e => e.Produtos) 
-            .HasForeignKey(p => p.IdEstoque) 
-            .OnDelete(DeleteBehavior.Cascade);  
+
 
 
     }

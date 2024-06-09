@@ -105,20 +105,12 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ProdutoCodProduto")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("QuantidadeDeItensNoEstoque")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("TipoEstoque")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdEstoque");
 
                     b.HasIndex("CpfId");
-
-                    b.HasIndex("ProdutoCodProduto");
 
                     b.ToTable("Estoque");
                 });
@@ -187,40 +179,46 @@ namespace Control_Estoque.Data.Migrations
                     b.Property<DateOnly>("DataMov")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("EstoqueIdEstoque")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("IdEstoque")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("TipoMov")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("IdInv");
 
                     b.HasIndex("CpfId");
 
-                    b.HasIndex("EstoqueIdEstoque");
+                    b.HasIndex("IdEstoque");
 
                     b.ToTable("Inventario");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.InventarioProduto", b =>
                 {
-                    b.Property<int>("IdInv")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(0);
+                    b.Property<int>("IdInvProd")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(1);
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CpfId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IdInv")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Quantidade")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("IdInv", "CodProduto");
+                    b.Property<int>("TipoMov")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("IdInvProd");
 
                     b.HasIndex("CodProduto");
+
+                    b.HasIndex("CpfId");
+
+                    b.HasIndex("IdInv");
 
                     b.ToTable("InventarioProduto");
                 });
@@ -247,9 +245,6 @@ namespace Control_Estoque.Data.Migrations
                     b.Property<int>("EstoqueMinimo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdEstoque")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("NomeProduto")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -265,41 +260,42 @@ namespace Control_Estoque.Data.Migrations
 
                     b.HasIndex("CpfId");
 
-                    b.HasIndex("IdEstoque");
-
                     b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
                 {
-                    b.Property<int>("IdFornecedor")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(0);
+                    b.Property<int>("IdProdFornRec")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CpfId")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateOnly>("DataRecebimento")
+                    b.Property<DateTime>("DataRecebimento")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("IdEstoque")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(2);
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdFornecedor")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Qtde")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("IdFornecedor", "CodProduto");
+                    b.HasKey("IdProdFornRec");
 
                     b.HasIndex("CodProduto");
 
                     b.HasIndex("CpfId");
 
                     b.HasIndex("IdEstoque");
+
+                    b.HasIndex("IdFornecedor");
 
                     b.ToTable("ProdutoFornecedorReceb");
                 });
@@ -439,10 +435,6 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
-                    b.HasOne("Control_Estoque.Models.Produto", null)
-                        .WithMany("Estoques")
-                        .HasForeignKey("ProdutoCodProduto");
-
                     b.Navigation("Cpf");
                 });
 
@@ -477,11 +469,15 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
-                    b.HasOne("Control_Estoque.Models.Estoque", null)
-                        .WithMany("Inventarios")
-                        .HasForeignKey("EstoqueIdEstoque");
+                    b.HasOne("Control_Estoque.Models.Estoque", "Estoque")
+                        .WithMany()
+                        .HasForeignKey("IdEstoque")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cpf");
+
+                    b.Navigation("Estoque");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.InventarioProduto", b =>
@@ -492,11 +488,17 @@ namespace Control_Estoque.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Control_Estoque.Models.ApplicationUser", "Cpf")
+                        .WithMany()
+                        .HasForeignKey("CpfId");
+
                     b.HasOne("Control_Estoque.Models.Inventario", "Inventario")
                         .WithMany("InventarioProdutos")
                         .HasForeignKey("IdInv")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cpf");
 
                     b.Navigation("Inventario");
 
@@ -509,15 +511,7 @@ namespace Control_Estoque.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CpfId");
 
-                    b.HasOne("Control_Estoque.Models.Estoque", "Estoque")
-                        .WithMany("Produtos")
-                        .HasForeignKey("IdEstoque")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Cpf");
-
-                    b.Navigation("Estoque");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
@@ -608,11 +602,7 @@ namespace Control_Estoque.Data.Migrations
                 {
                     b.Navigation("EstoqueProdutos");
 
-                    b.Navigation("Inventarios");
-
                     b.Navigation("ProdutoFornecedorRecebs");
-
-                    b.Navigation("Produtos");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.Fornecedor", b =>
@@ -628,8 +618,6 @@ namespace Control_Estoque.Data.Migrations
             modelBuilder.Entity("Control_Estoque.Models.Produto", b =>
                 {
                     b.Navigation("EstoqueProdutos");
-
-                    b.Navigation("Estoques");
 
                     b.Navigation("InventarioProdutos");
 

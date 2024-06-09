@@ -18,7 +18,7 @@
                 <th>@Html.DisplayNameFor(model => model.Descrição)</th>
                 <th>Estoque Mínimo</th>
                 <th>Estoque Máximo</th>
-                <th>Categoria Estoque</th>                
+                <!--<th>Categoria Estoque</th> -->
                 <th>Unidade de medida</th>
                 <th>Opções</th>
             </tr>
@@ -42,9 +42,7 @@
                     <td class="align-center">
                         @Html.DisplayFor(modelItem => item.EstoqueMaximo)
                     </td>
-                    <td class="align-center">
-                        @item?.Estoque?.NomeEstoque
-                       </td>                    
+                   
                     <td class="align-center">
                         @Html.DisplayFor(modelItem => item.UnidadeMedida)
                     </td>

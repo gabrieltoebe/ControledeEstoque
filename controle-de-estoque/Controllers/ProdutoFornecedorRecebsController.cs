@@ -8,12 +8,14 @@ using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
+using Control_Estoque.Data.Migrations;
 
 namespace Control_Estoque.Controllers
 {
     public class ProdutoFornecedorRecebsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private int quant;
 
         public ProdutoFornecedorRecebsController(ApplicationDbContext context)
         {
@@ -40,7 +42,8 @@ namespace Control_Estoque.Controllers
             var produtoFornecedorReceb = await _context.ProdutoFornecedorReceb
                 .Include(p => p.Fornecedor)
                 .Include(p => p.Produto)
-                .FirstOrDefaultAsync(m => m.IdFornecedor == id);
+                .Include(p => p.Cpf)
+                .FirstOrDefaultAsync(m => m.IdProdFornRec == id);
             if (produtoFornecedorReceb == null)
             {
                 return NotFound();
@@ -55,6 +58,7 @@ namespace Control_Estoque.Controllers
         {
             ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             return View();
         }
 
@@ -64,11 +68,14 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("IdFornecedor,CodProduto,Qtde")] ProdutoFornecedorReceb produtoFornecedorReceb)
+        public async Task<IActionResult> Create([Bind("IdFornecedor,CodProduto,IdEstoque,Qtde")] ProdutoFornecedorReceb produtoFornecedorReceb)
         {
             ModelState.Remove("Cpf");
             ModelState.Remove("DataRecebimento");
-            ModelState.Remove("IdEstoque");
+            ModelState.Remove("Produto");
+            ModelState.Remove("Fornecedor");
+            ModelState.Remove("Estoque");
+
             if (ModelState.IsValid)
             {
                 //var username = User.Identity?.Name;
@@ -77,12 +84,81 @@ namespace Control_Estoque.Controllers
 
                 //produtoFornecedorReceb.Cpf = currentUser ?? new();
                 produtoFornecedorReceb.DataRecebimento = DateTime.Now;
-                produtoFornecedorReceb.IdEstoque = 10; //produtoIdEstoque.IdEstoque;
+
+                var username = User.Identity?.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                produtoFornecedorReceb.Cpf = currentUser ?? new();
+                             
+
+                var produto = await _context.Produto.FindAsync(produtoFornecedorReceb.CodProduto);
+                produtoFornecedorReceb.Produto = produto;
+
+                var fornecedor = await _context.Fornecedor.FindAsync(produtoFornecedorReceb.IdFornecedor);
+                produtoFornecedorReceb.Fornecedor = fornecedor;
+
+
+                var estoque = await _context.Estoque.FindAsync(produtoFornecedorReceb.IdEstoque);
+                produtoFornecedorReceb.Estoque = estoque;
+                EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(produtoFornecedorReceb.IdEstoque, produto.CodProduto);
+                // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+
+                //var quant = produtoBuscado.Qtde;
+                // int soma = quant + produtoFornecedorReceb.Qtde;
+                // produtoBuscado.Qtde = soma;
+
+                //var produtoBuscado = _context.EstoqueProduto.Find(produtoFornecedorReceb.IdEstoque, produto.CodProduto);
+                //var comparapord = produtoBuscado2.Equals(Empty);
+
+                if (produtoBuscado == null)
+                {
+                    // Caso a quantidade seja nula, não realizamos a soma
+                    ModelState.AddModelError("Produto", "Produto Não Cadastrado");
+                    ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
+                    ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+                    ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+                    return View(produtoFornecedorReceb);
+
+                }
+                else{
+
+                   int quant = produtoBuscado.Qtde;
+                   int soma = quant + produtoFornecedorReceb.Qtde;
+                   produtoBuscado.Qtde = soma;
+
+                   _context.Update(produtoBuscado);
+                   await _context.SaveChangesAsync();                    
+                }
+
+               
+                
+                                
+                /*
+                var comparapord = produtoBuscado2.Qtde;
+
+                if (comparapord != null)
+                {
+                    var quant = produtoBuscado2.Qtde;
+                    int soma = quant + produtoFornecedorReceb.Qtde;
+                    produtoBuscado2.Qtde = soma;
+                }
+                else
+                {
+                    // Caso a quantidade seja nula, não realizamos a soma
+                    produtoBuscado2.Qtde = produtoFornecedorReceb.Qtde;
+                }
+                */
+                
+
+
+                // produtoFornecedorReceb.IdEstoque = 10; //produtoIdEstoque.IdEstoque;
 
                 _context.Add(produtoFornecedorReceb);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             return View(produtoFornecedorReceb);
         }
 

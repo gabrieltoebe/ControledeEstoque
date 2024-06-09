@@ -61,7 +61,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("IdInv,Cpf,IdEstoque,TipoMov,DataMov")] Inventario inventario)
+        public async Task<IActionResult> Create([Bind("IdInv,Cpf,IdEstoque,DataMov")] Inventario inventario)
         {
             ModelState.Remove("IdInv");
             ModelState.Remove("Cpf");
@@ -103,7 +103,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("IdInv,IdMovimento,IdEstoque,TipoMov,DataMov")] Inventario inventario)
+        public async Task<IActionResult> Edit(int id, [Bind("IdInv,IdMovimento,IdEstoque,DataMov")] Inventario inventario)
         {
             if (id != inventario.IdInv)
             {

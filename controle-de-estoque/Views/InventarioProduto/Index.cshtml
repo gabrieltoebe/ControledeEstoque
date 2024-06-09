@@ -21,7 +21,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Quantidade)
             </th>
-            <th>Opções</th>
+            <th>
+                Tipo movimentação (E / S)
+            </th>
+            <th>Data</th>
         </tr>
     </thead>
     <tbody>
@@ -33,12 +36,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Produto.CodProduto)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantidade)
+                </td>
+
+                
                 <td class="align-center">
-                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdInv">Detalhes</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdInv">Excluir</a>
+                @Html.DisplayFor(modelItem => item.TipoMov)
+                </td>
+
+
+                <td class="align-center">
+                    @Html.DisplayFor(modelItem => item.Inventario.DataMov)
                 </td>
         </tr>
 }

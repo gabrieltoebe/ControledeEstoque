@@ -5,18 +5,23 @@ namespace Control_Estoque.Models;
 
 public class ProdutoFornecedorReceb
 {
+
     [Key]
-    [Column(Order = 0)]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int IdProdFornRec { get; set; }
+
+    //[Key]
+    //[Column(Order = 0)]
     public int IdFornecedor { get; set; }
     public virtual required Fornecedor Fornecedor { get; set; } = null!;
 
-    [Key]
-    [Column(Order = 1)]
+    //[Key]
+   // [Column(Order = 1)]
     public int CodProduto { get; set; }
     public virtual required Produto Produto { get; set; } = null!;
 
-    [Key]
-    [Column(Order = 2)]
+    //[Key]
+  //  [Column(Order = 2)]
     public int IdEstoque { get; set; }
     public virtual required Estoque Estoque { get; set; } = null!;
 

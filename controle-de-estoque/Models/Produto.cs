@@ -15,7 +15,6 @@ public partial class Produto
     public int EstoqueMinimo { get; set; }
 
     public int EstoqueMaximo { get; set; }
-    public int IdEstoque { get; set; }
 
     public int ValidadeDias { get; set; } 
     public string UnidadeMedida { get; set; } = null!;
@@ -30,8 +29,6 @@ public partial class Produto
     public virtual ICollection<ProdutoFornecedorReceb> ProdutoFornecedorRecebs { get; set; } = new List<ProdutoFornecedorReceb>();
 
     public virtual ICollection<EstoqueProduto> EstoqueProdutos { get; set; } = new List<EstoqueProduto>();
-    public virtual ICollection<Estoque>? Estoques { get; set; }
+    //public virtual ICollection<Estoque>? Estoques { get; set; }
 
-    // Chave estrangeira para Estoque
-    public virtual Estoque? Estoque { get; set; }
 }

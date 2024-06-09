@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
+using Control_Estoque.Data.Migrations;
 
 namespace Control_Estoque.Controllers
 {
@@ -57,6 +58,7 @@ namespace Control_Estoque.Controllers
         {
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv");
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+            ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
             return View();
         }
 
@@ -66,16 +68,72 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("IdInv,CodProduto,Quantidade")] InventarioProduto inventarioProduto)
+        public async Task<IActionResult> Create([Bind("IdInv,CodProduto,Quantidade,TipoMov,Cpf")] InventarioProduto inventarioProduto)
         {
+            ModelState.Remove("IdInv");
+            ModelState.Remove("Cpf");
+            ModelState.Remove("Produto");
+            ModelState.Remove("Inventario");
+
             if (ModelState.IsValid)
             {
+                var username = User.Identity?.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                inventarioProduto.Cpf = currentUser ?? new();
+
+                var inventario = await _context.Inventario.FindAsync(inventarioProduto.IdInv);
+                inventarioProduto.Inventario = inventario;
+
+                var produto = await _context.Produto.FindAsync(inventarioProduto.CodProduto);
+                inventarioProduto.Produto = produto;
+
+
+                EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(inventario.IdEstoque, produto.CodProduto);
+               // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+                var quant = produtoBuscado.Qtde;
+
+                if (inventarioProduto.TipoMov.Equals(Models.TipoMov.Saida))
+                {
+                    //restar
+                    if (inventarioProduto.Quantidade <= quant)
+                    {
+                        int resta = quant - inventarioProduto.Quantidade;
+                        produtoBuscado.Qtde = resta;
+                        _context.Update(produtoBuscado);
+                        await _context.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        // ModelState.AddModelError()
+                        ModelState.AddModelError("Quantidade", "Quantidade Indisponível");
+                        ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv", inventarioProduto.IdInv);
+                        ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto);
+                        ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
+                        return View(inventarioProduto);
+                    }
+
+                }
+                else
+                {
+                    //somar
+                    int soma = quant + inventarioProduto.Quantidade;
+                    produtoBuscado.Qtde = soma;
+                    _context.Update(produtoBuscado);
+                    await _context.SaveChangesAsync();
+                }
+
+
+
+
+
+
                 _context.Add(inventarioProduto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv", inventarioProduto.IdInv);
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto);
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto); 
+            ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
             return View(inventarioProduto);
         }
 
@@ -95,6 +153,7 @@ namespace Control_Estoque.Controllers
             }
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv", inventarioProduto.IdInv);
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto);
+            ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
             return View(inventarioProduto);
         }
 
@@ -104,7 +163,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("IdInv,CodProduto,Quantidade")] InventarioProduto inventarioProduto)
+        public async Task<IActionResult> Edit(int id, [Bind("IdInv,CodProduto,Quantidade,TipoMov,Cpf")] InventarioProduto inventarioProduto)
         {
             if (id != inventarioProduto.IdInv)
             {
@@ -133,6 +192,7 @@ namespace Control_Estoque.Controllers
             }
             ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv", inventarioProduto.IdInv);
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto);
+            ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));
             return View(inventarioProduto);
         }
 

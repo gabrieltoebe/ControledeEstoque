@@ -16,16 +16,7 @@
                 <select asp-for="IdEstoque" class="form-control" asp-items="ViewBag.IdEstoque"></select>
                 <span asp-validation-for="IdEstoque" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="TipoMov" class="control-label"> Movimentação</label>
-                <select asp-for="TipoMov" class="form-control">
-                    @foreach (var tipoMov in ViewBag.TipoMov)
-                    {
-                        <option value="@tipoMov">@tipoMov</option>
-                    }
-                </select>
-
-            </div>
+           
             <div class="form-group">
                 <label asp-for="DataMov" class="control-label">Data Programada</label>
                 <input asp-for="DataMov" class="form-control datepicker" />

@@ -25,17 +25,8 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
-            var estoqueComContagemDeProdutos = await _context.Estoque
-             .Select(e => new
-             {
-                 EstoqueId = e.IdEstoque,
-                 NomeEstoque = e.NomeEstoque,
-                 QuantidadeDeProdutos = e.Produtos.Count,
-                 EstoqueAtivo = e.AtivEstoque
-             })
-             .ToListAsync();
-
-            return View(estoqueComContagemDeProdutos);
+            return View(await _context.Estoque.ToListAsync());
+           // return View(estoqueComContagemDeProdutos);
         }
 
         // GET: Estoques/Details/5
@@ -55,15 +46,6 @@ namespace Control_Estoque.Controllers
                     EstoqueId = e.IdEstoque,
                     NomeEstoque = e.NomeEstoque,
                     EstoqueAtivo = e.AtivEstoque,
-                    Produtos = e.Produtos.Select(p => new ProdutosViewModel
-                    {
-                        CodProduto = p.CodProduto,
-                        DescricaoProduto = p.NomeProduto,
-                        QuantidadeMinima = p.EstoqueMinimo,
-                        UnidadeMed = p.UnidadeMedida,
-                        QuantidadeMaxima = p.EstoqueMaximo
-                    })
-                    .ToList()
                 }).FirstOrDefaultAsync();
 
             if (estoqueComProdutos == null)
@@ -73,7 +55,7 @@ namespace Control_Estoque.Controllers
 
             return View(estoqueComProdutos);
         }
-    
+
         // GET: Estoques/Create
         [Authorize] // solo usuarios autenticados pueden crear productos
         public IActionResult Create()
@@ -86,7 +68,7 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdEstoque,NomeEstoque,TipoEstoque,QuantidadeDeItensNoEstoque, AtivEstoque")] Estoque estoque)
+        public async Task<IActionResult> Create([Bind("IdEstoque,NomeEstoque,TipoEstoque, AtivEstoque")] Estoque estoque)
         {
             ModelState.Remove("TipoEstoque");
             ModelState.Remove("Cpf");
@@ -95,7 +77,6 @@ namespace Control_Estoque.Controllers
             {
                 estoque.NomeEstoque = estoque.NomeEstoque.ToUpper();
                 estoque.TipoEstoque = 1;
-                estoque.QuantidadeDeItensNoEstoque = 0;
                 estoque.AtivEstoque = true;
 
                 _context.Add(estoque);
@@ -132,7 +113,7 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // solo usuarios autenticados pueden crear productos
-        public async Task<IActionResult> Edit(int id, [Bind("IdEstoque,NomeEstoque,TipoEstoque,QuantidadeDeItensNoEstoque, AtivEstoque")] Estoque estoque)
+        public async Task<IActionResult> Edit(int id, [Bind("IdEstoque,NomeEstoque,TipoEstoque, AtivEstoque")] Estoque estoque)
         {
             ModelState.Remove("TipoEstoque");
             ModelState.Remove("Cpf");
@@ -190,14 +171,14 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var estoque = await _context.Estoque.FindAsync(id);
-            if (estoque != null && !estoque.AtivEstoque && estoque.QuantidadeDeItensNoEstoque == 0)
+            if (estoque != null && !estoque.AtivEstoque)
             {
                 _context.Estoque.Remove(estoque);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             else
-                TempData["ErrorMessage"] = $"O estoque {estoque.IdEstoque} está ativo ou contém produtos. Não será possível excluir.";        
+                TempData["ErrorMessage"] = $"O estoque {estoque.IdEstoque} está ativo ou contém produtos. Não será possível excluir.";
             return View(estoque);
         }
 
