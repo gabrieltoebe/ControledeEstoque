@@ -2903,3 +2903,16 @@ C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\Control_Es
 C:\Users\Nany\Desktop\Nova pasta\controle-de-estoque\obj\Debug\net8.0\ref\Control_Estoque.dll
 =======
 >>>>>>> origin/controle-de-estoque.v2
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.csproj.AssemblyReference.cache
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.AssemblyInfoInputs.cache
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.AssemblyInfo.cs
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.csproj.CoreCompileInputs.cache
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.MvcApplicationPartsAssemblyInfo.cs
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.MvcApplicationPartsAssemblyInfo.cache
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.RazorAssemblyInfo.cache
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.RazorAssemblyInfo.cs
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.sourcelink.json
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.dll
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\refint\Control_Estoque.dll
+D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.pdb
