@@ -46,20 +46,6 @@ namespace Control_Estoque.Controllers
                     EstoqueId = e.IdEstoque,
                     NomeEstoque = e.NomeEstoque,
                     EstoqueAtivo = e.AtivEstoque,
-                    Produtos = e.Produtos.Select(p => new ProdutosViewModel
-                    {
-                        CodProduto = p.CodProduto,
-                        DescricaoProduto = p.NomeProduto,
-                        QuantidadeMinima = p.EstoqueMinimo,
-                        UnidadeMed = p.UnidadeMedida,
-                        QuantidadeMaxima = p.EstoqueMaximo,
-                        QuantidadeNoEstoque = p.EstoqueProdutos
-                            //.Where(ep => ep.CodProduto == p.CodProduto && ep.EstoqueId == Id)
-                            .Where(ep => ep.CodProduto == p.CodProduto)
-                            .Sum(ep => ep.Qtde)
-                    })
-                    .ToList()
-
                 }).FirstOrDefaultAsync();
 
             if (estoqueComProdutos == null)
