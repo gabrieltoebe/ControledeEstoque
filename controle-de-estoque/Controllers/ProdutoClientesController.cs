@@ -13,6 +13,7 @@ namespace Control_Estoque.Controllers
     public class ProdutoClientesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private int quant;
 
         public ProdutoClientesController(ApplicationDbContext context)
         {
@@ -36,7 +37,7 @@ namespace Control_Estoque.Controllers
 
             var produtoCliente = await _context.ProdutoCliente
                 .Include(p => p.Cliente)
-                .Include(p => p.Estoque)
+                .Include(p => p.Cpf)
                 .Include(p => p.Produto)
                 .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (produtoCliente == null)
@@ -63,6 +64,12 @@ namespace Control_Estoque.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdProdFornRec,IdCliente,CodProduto,IdEstoque,Qtde,DataRecebimento")] ProdutoCliente produtoCliente)
         {
+            ModelState.Remove("Cpf");
+            ModelState.Remove("DataRecebimento");
+            ModelState.Remove("Produto");
+            ModelState.Remove("Fornecedor");
+            ModelState.Remove("Estoque");
+
             if (ModelState.IsValid)
             {
                 _context.Add(produtoCliente);
