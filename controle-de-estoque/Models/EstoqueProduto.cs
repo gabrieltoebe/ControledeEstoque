@@ -12,20 +12,20 @@ public enum TipoMovE
 
 public class EstoqueProduto
 {
+    //[Key]
+    //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    //public int IdEstProd { get; set; }
+
+
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int IdEstProd { get; set; }
-
-
-    //[Key]
-    //[Column(Order = 0)]
+    [Column(Order = 0)]
     public int EstoqueId { get; set; }
-    public virtual required Estoque Estoque { get; set; }
+    public virtual required Estoque Estoque { get; set; } = null!;
 
-    //[Key]
-    //[Column(Order = 1)]
+    [Key]
+    [Column(Order = 1)]
     public int CodProduto { get; set; }
-    public virtual required Produto Produto { get; set; }
+    public virtual required Produto Produto { get; set; } = null!;
 
     public ApplicationUser Cpf { get; set; } = null!;
 

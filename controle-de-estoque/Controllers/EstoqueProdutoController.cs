@@ -9,6 +9,7 @@ using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Drawing.Text;
+using Control_Estoque.Data.Migrations;
 
 namespace Control_Estoque.Controllers
 {
@@ -20,20 +21,13 @@ namespace Control_Estoque.Controllers
         {
             _context = context;
         }
-
-        
-
-        
-
+    
         // GET: EstoqueProduto
         [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.EstoqueProduto.Include(e => e.Estoque).Include(p => p.Produto);
-
             return View(await applicationDbContext.ToListAsync());
-
-
         }
 
 
@@ -41,7 +35,7 @@ namespace Control_Estoque.Controllers
         [Authorize]
         public async Task<IActionResult> Details(int? Estoque, int? Produto)
         {
-            var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
+            //var id_estoqueProduto = _context.EstoqueProduto.SingleOrDefault(e => e.EstoqueId == Estoque && e.CodProduto == Produto);
 
             if (Estoque == null || Produto == null)
             {
@@ -77,12 +71,12 @@ namespace Control_Estoque.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Qtde")] EstoqueProduto estoqueProduto)
+        public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Cpf,TipoMovE,Qtde")] EstoqueProduto estoqueProduto)
         {
-            try
-            {
+
                 ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
                 ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
+                ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
 
                 ModelState.Remove("Estoque");
                 ModelState.Remove("Produto");
@@ -90,6 +84,58 @@ namespace Control_Estoque.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    var username = User.Identity?.Name;
+                    var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                    estoqueProduto.Cpf = currentUser ?? new();
+
+                    var estoque = await _context.Estoque.FindAsync(estoqueProduto.EstoqueId);
+                    estoqueProduto.Estoque = estoque;
+
+                    var produto = await _context.Produto.FindAsync(estoqueProduto.CodProduto);
+                    estoqueProduto.Produto = produto;
+
+                    EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(estoque.IdEstoque, produto.CodProduto);
+                    // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+
+                    //var quant = produtoBuscado.Qtde;
+
+
+                    if (estoqueProduto.TipoMovE.Equals(Models.TipoMovE.Saida))
+                    {
+                        if (produtoBuscado == null)
+                        {
+                            var quant = 0;
+                        }
+                    //restar
+                    if (estoqueProduto.Qtde <= quant)
+                        {
+                            int resta = quant - estoqueProduto.Qtde;
+                            produtoBuscado.Qtde = resta;
+                            _context.Update(produtoBuscado);
+                            await _context.SaveChangesAsync();
+                        }
+                        else
+                        {
+                            // ModelState.AddModelError()
+                            ModelState.AddModelError("Quantidade", "Quantidade Indisponível para Saída");
+                            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+                            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+                            ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
+                            return View(estoqueProduto);
+                        }
+
+                    }
+                    else
+                    {
+                        //somar
+                        int soma = quant + estoqueProduto.Qtde;
+                        produtoBuscado.Qtde = soma;
+                        _context.Update(produtoBuscado);
+                        await _context.SaveChangesAsync();
+                    }
+
+
+
                     _context.Add(estoqueProduto);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
@@ -98,11 +144,7 @@ namespace Control_Estoque.Controllers
                     return RedirectToAction(nameof(Index));
                 }
                 
-            }catch(Exception ex)
-            {
-               Console.WriteLine(ex.ToString());
-            }
-                return View(estoqueProduto);
+
         }
 
         // GET: EstoqueProduto/Edit/5

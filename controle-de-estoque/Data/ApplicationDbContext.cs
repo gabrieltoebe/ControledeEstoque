@@ -23,7 +23,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
 
         modelBuilder.Entity<EstoqueProduto>()
-            .HasKey(ep => new { ep.IdEstProd });
+            .HasKey(ep => new { ep.EstoqueId, ep.CodProduto });
 
         modelBuilder.Entity<EstoqueProduto>()
             .HasOne(ep => ep.Estoque)
