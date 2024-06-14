@@ -123,10 +123,6 @@ namespace Control_Estoque.Controllers
                 }
 
 
-
-
-
-
                 _context.Add(inventarioProduto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

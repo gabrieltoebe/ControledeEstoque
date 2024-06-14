@@ -21,7 +21,7 @@ namespace Control_Estoque.Controllers
         {
             _context = context;
         }
-    
+
         // GET: EstoqueProduto
         [Authorize]
         public async Task<IActionResult> Index()
@@ -74,40 +74,49 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> Create([Bind("EstoqueId,CodProduto,Cpf,TipoMovE,Qtde")] EstoqueProduto estoqueProduto)
         {
 
-                ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
-                ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
-                ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
+            ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque", estoqueProduto.EstoqueId);
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto", estoqueProduto.CodProduto);
+            ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
 
-                ModelState.Remove("Estoque");
-                ModelState.Remove("Produto");
-                ModelState.Remove("Cpf");
+            ModelState.Remove("Estoque");
+            ModelState.Remove("Produto");
+            ModelState.Remove("Cpf");
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                var username = User.Identity?.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                estoqueProduto.Cpf = currentUser ?? new();
+
+                var estoque = await _context.Estoque.FindAsync(estoqueProduto.EstoqueId);
+                estoqueProduto.Estoque = estoque;
+
+                var produto = await _context.Produto.FindAsync(estoqueProduto.CodProduto);
+                estoqueProduto.Produto = produto;
+
+                EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(estoque.IdEstoque, produto.CodProduto);
+                // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+
+                if(produtoBuscado == null)
                 {
-                    var username = User.Identity?.Name;
-                    var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
-                    estoqueProduto.Cpf = currentUser ?? new();
-
-                    var estoque = await _context.Estoque.FindAsync(estoqueProduto.EstoqueId);
-                    estoqueProduto.Estoque = estoque;
-
-                    var produto = await _context.Produto.FindAsync(estoqueProduto.CodProduto);
-                    estoqueProduto.Produto = produto;
-
-                    EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(estoque.IdEstoque, produto.CodProduto);
-                    // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
-
-                    //var quant = produtoBuscado.Qtde;
-
-
+                    //"EstoqueId,CodProduto,Cpf,TipoMovE,Qtde"
+                    produtoBuscado.EstoqueId = estoqueProduto.EstoqueId;
+                    produtoBuscado.CodProduto = estoqueProduto.CodProduto;
+                    produtoBuscado.Cpf = currentUser ?? new();
+                    produtoBuscado.Qtde = estoqueProduto.Qtde;
+                    produtoBuscado.TipoMovE = estoqueProduto.TipoMovE;
+                    _context.Update(produtoBuscado);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    //condição de entrada o saida - inicio
                     if (estoqueProduto.TipoMovE.Equals(Models.TipoMovE.Saida))
                     {
-                        if (produtoBuscado == null)
-                        {
-                            var quant = 0;
-                        }
-                    //restar
-                    if (estoqueProduto.Qtde <= quant)
+                        var quant = produtoBuscado.Qtde;
+                        //restar
+                        if (estoqueProduto.Qtde <= quant)
                         {
                             int resta = quant - estoqueProduto.Qtde;
                             produtoBuscado.Qtde = resta;
@@ -128,22 +137,30 @@ namespace Control_Estoque.Controllers
                     else
                     {
                         //somar
+                        var quant = produtoBuscado.Qtde;
                         int soma = quant + estoqueProduto.Qtde;
                         produtoBuscado.Qtde = soma;
                         _context.Update(produtoBuscado);
                         await _context.SaveChangesAsync();
                     }
-
-
-
-                    _context.Add(estoqueProduto);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }else
-                {
-                    return RedirectToAction(nameof(Index));
+                    //condição de entrada o saida - fim
                 }
-                
+
+
+                _context.Add(estoqueProduto);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+
+            }
+            else
+            {//redireção se modelo nao for valido...
+                ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+                ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+                ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
+                return View(estoqueProduto);
+            }
+  
 
         }
 
