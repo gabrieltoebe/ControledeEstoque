@@ -104,4 +104,6 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Control_Estoque.Models.ProdutoCliente> ProdutoCliente { get; set; } = default!;
 
     public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
+
+public DbSet<Control_Estoque.Models.Cliente> Cliente { get; set; } = default!;
 }
