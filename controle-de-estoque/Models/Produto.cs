@@ -28,6 +28,8 @@ public partial class Produto
 
     public virtual ICollection<ProdutoFornecedorReceb> ProdutoFornecedorRecebs { get; set; } = new List<ProdutoFornecedorReceb>();
 
+    public virtual ICollection<ProdutoCliente> ProdutoCliente { get; set; } = new List<ProdutoCliente>();
+
     public virtual ICollection<EstoqueProduto> EstoqueProdutos { get; set; } = new List<EstoqueProduto>();
     //public virtual ICollection<Estoque>? Estoques { get; set; }
 

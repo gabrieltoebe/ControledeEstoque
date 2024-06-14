@@ -12,6 +12,7 @@ public enum TipoMovE
 
 public class EstoqueProduto
 {
+    
     //[Key]
     //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     //public int IdEstProd { get; set; }
@@ -26,6 +27,7 @@ public class EstoqueProduto
     [Column(Order = 1)]
     public int CodProduto { get; set; }
     public virtual required Produto Produto { get; set; } 
+
     public ApplicationUser Cpf { get; set; } = null!;
 
     public int Qtde { get; set; }

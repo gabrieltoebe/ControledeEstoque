@@ -89,6 +89,33 @@ namespace Control_Estoque.Data.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Control_Estoque.Models.Cliente", b =>
+                {
+                    b.Property<int>("IdCliente")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EnderecoCliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EstadoCliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NomeCliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TelefoneCliente")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("IdCliente");
+
+                    b.ToTable("Cliente");
+                });
+
             modelBuilder.Entity("Control_Estoque.Models.Estoque", b =>
                 {
                     b.Property<int>("IdEstoque")
@@ -264,6 +291,41 @@ namespace Control_Estoque.Data.Migrations
                     b.HasIndex("CpfId");
 
                     b.ToTable("Produto");
+                });
+
+            modelBuilder.Entity("Control_Estoque.Models.ProdutoCliente", b =>
+                {
+                    b.Property<int>("IdCliente")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CodProduto")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CpfId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("DataRecebimento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("IdEstoque")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("IdProdFornRec")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Qtde")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("IdCliente");
+
+                    b.HasIndex("CodProduto");
+
+                    b.HasIndex("CpfId");
+
+                    b.HasIndex("IdEstoque");
+
+                    b.ToTable("ProdutoCliente");
                 });
 
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
@@ -517,6 +579,39 @@ namespace Control_Estoque.Data.Migrations
                     b.Navigation("Cpf");
                 });
 
+            modelBuilder.Entity("Control_Estoque.Models.ProdutoCliente", b =>
+                {
+                    b.HasOne("Control_Estoque.Models.Produto", "Produto")
+                        .WithMany("ProdutoCliente")
+                        .HasForeignKey("CodProduto")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Control_Estoque.Models.ApplicationUser", "Cpf")
+                        .WithMany()
+                        .HasForeignKey("CpfId");
+
+                    b.HasOne("Control_Estoque.Models.Cliente", "Cliente")
+                        .WithMany("ProdutoCliente")
+                        .HasForeignKey("IdCliente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Control_Estoque.Models.Estoque", "Estoque")
+                        .WithMany("ProdutoCliente")
+                        .HasForeignKey("IdEstoque")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Cpf");
+
+                    b.Navigation("Estoque");
+
+                    b.Navigation("Produto");
+                });
+
             modelBuilder.Entity("Control_Estoque.Models.ProdutoFornecedorReceb", b =>
                 {
                     b.HasOne("Control_Estoque.Models.Produto", "Produto")
@@ -601,9 +696,16 @@ namespace Control_Estoque.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Control_Estoque.Models.Cliente", b =>
+                {
+                    b.Navigation("ProdutoCliente");
+                });
+
             modelBuilder.Entity("Control_Estoque.Models.Estoque", b =>
                 {
                     b.Navigation("EstoqueProdutos");
+
+                    b.Navigation("ProdutoCliente");
 
                     b.Navigation("ProdutoFornecedorRecebs");
                 });
@@ -623,6 +725,8 @@ namespace Control_Estoque.Data.Migrations
                     b.Navigation("EstoqueProdutos");
 
                     b.Navigation("InventarioProdutos");
+
+                    b.Navigation("ProdutoCliente");
 
                     b.Navigation("ProdutoFornecedorRecebs");
                 });

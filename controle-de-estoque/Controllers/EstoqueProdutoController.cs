@@ -97,15 +97,9 @@ namespace Control_Estoque.Controllers
                 EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(estoque.IdEstoque, produto.CodProduto);
                 // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
 
-                if(produtoBuscado == null)
+                if (produtoBuscado == null)
                 {
-                    //"EstoqueId,CodProduto,Cpf,TipoMovE,Qtde"
-                    produtoBuscado.EstoqueId = estoqueProduto.EstoqueId;
-                    produtoBuscado.CodProduto = estoqueProduto.CodProduto;
-                    produtoBuscado.Cpf = currentUser ?? new();
-                    produtoBuscado.Qtde = estoqueProduto.Qtde;
-                    produtoBuscado.TipoMovE = estoqueProduto.TipoMovE;
-                    _context.Update(produtoBuscado);
+                    _context.Add(estoqueProduto);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }

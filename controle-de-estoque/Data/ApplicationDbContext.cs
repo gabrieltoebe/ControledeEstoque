@@ -68,6 +68,23 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             .WithMany(p => p.InventarioProdutos)
             .HasForeignKey(ip => ip.CodProduto);
 
+        modelBuilder.Entity<ProdutoCliente>()
+    .HasKey(pfr => new { pfr.IdCliente });
+
+        modelBuilder.Entity<ProdutoCliente>()
+            .HasOne(pfr => pfr.Cliente)
+            .WithMany(f => f.ProdutoCliente)
+            .HasForeignKey(pfr => pfr.IdCliente);
+
+        modelBuilder.Entity<ProdutoCliente>()
+            .HasOne(pfr => pfr.Produto)
+            .WithMany(p => p.ProdutoCliente)
+            .HasForeignKey(pfr => pfr.CodProduto);
+
+        modelBuilder.Entity<ProdutoCliente>()
+           .HasOne(pfr => pfr.Estoque)
+           .WithMany(p => p.ProdutoCliente)
+           .HasForeignKey(pfr => pfr.IdEstoque);
 
 
 
@@ -83,6 +100,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Control_Estoque.Models.EstoqueProduto> EstoqueProduto { get; set; } = default!;
 
     public DbSet<Control_Estoque.Models.ProdutoFornecedorReceb> ProdutoFornecedorReceb { get; set; } = default!;
+
+    public DbSet<Control_Estoque.Models.ProdutoCliente> ProdutoCliente { get; set; } = default!;
 
     public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
 }
