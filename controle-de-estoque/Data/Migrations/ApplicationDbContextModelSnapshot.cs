@@ -158,9 +158,6 @@ namespace Control_Estoque.Data.Migrations
                     b.Property<int>("Qtde")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TipoMovE")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("EstoqueId", "CodProduto");
 
                     b.HasIndex("CodProduto");
@@ -295,7 +292,8 @@ namespace Control_Estoque.Data.Migrations
 
             modelBuilder.Entity("Control_Estoque.Models.ProdutoCliente", b =>
                 {
-                    b.Property<int>("IdCliente")
+                    b.Property<int>("IdProdClient")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("CodProduto")
@@ -307,21 +305,22 @@ namespace Control_Estoque.Data.Migrations
                     b.Property<DateTime>("DataRecebimento")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdEstoque")
+                    b.Property<int>("IdCliente")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdProdFornRec")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("IdEstoque")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("Qtde")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("IdCliente");
+                    b.HasKey("IdProdClient");
 
                     b.HasIndex("CodProduto");
 
                     b.HasIndex("CpfId");
+
+                    b.HasIndex("IdCliente");
 
                     b.HasIndex("IdEstoque");
 
