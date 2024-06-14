@@ -105,7 +105,7 @@ namespace Control_Estoque.Controllers
                     else
                     {
                         // ModelState.AddModelError()
-                        ModelState.AddModelError("Quantidade", "Quantidade Indisponível");
+                        ModelState.AddModelError("Quantidade", "Quantidade Indisponível para Saída");
                         ViewData["IdInv"] = new SelectList(_context.Inventario, "IdInv", "IdInv", inventarioProduto.IdInv);
                         ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", inventarioProduto.CodProduto);
                         ViewData["TipoMov"] = Enum.GetValues(typeof(TipoMov));

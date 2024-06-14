@@ -117,25 +117,32 @@ namespace Control_Estoque.Data.Migrations
 
             modelBuilder.Entity("Control_Estoque.Models.EstoqueProduto", b =>
                 {
-                    b.Property<int>("EstoqueId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(0);
+                    b.Property<int>("IdEstProd")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("CodProduto")
-                        .HasColumnType("INTEGER")
-                        .HasColumnOrder(1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("CpfId")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("EstoqueId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Qtde")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("EstoqueId", "CodProduto");
+                    b.Property<int>("TipoMovE")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("IdEstProd");
 
                     b.HasIndex("CodProduto");
 
                     b.HasIndex("CpfId");
+
+                    b.HasIndex("EstoqueId");
 
                     b.ToTable("EstoqueProduto");
                 });

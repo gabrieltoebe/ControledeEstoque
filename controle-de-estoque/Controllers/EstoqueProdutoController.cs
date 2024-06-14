@@ -67,6 +67,7 @@ namespace Control_Estoque.Controllers
         {
             ViewData["EstoqueId"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
+            ViewData["TipoMovE"] = Enum.GetValues(typeof(TipoMovE));
             return View();
         }
 

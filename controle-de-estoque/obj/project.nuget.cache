@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Oc1hU7g5DGM=",
+  "dgSpecHash": "nH8j5N+pfgU=",
   "success": true,
-  "projectFilePath": "F:\\Ativita\\EAD _ Uniftec\\10. Projeto Emprededor II ADS\\Nova pasta\\controle-de-estoque\\Control_Estoque.csproj",
+  "projectFilePath": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial W\\controle-de-estoque\\Control_Estoque.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nany\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Nany\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

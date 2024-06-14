@@ -1,11 +1,11 @@
 ﻿@model Control_Estoque.Models.EstoqueProduto
 
 @{
-    ViewData["Title"] = "Entrada de produtos";
+    ViewData["Title"] = "Movimentação de produtos";
 }
 
 
-<h2 class="title">Entrada de produtos</h2>
+<h2 class="title">Movimentação de produtos</h2>
 
 <hr />
 <div class="row">
@@ -24,6 +24,16 @@
                 <label asp-for="Qtde" class="control-label">Quantidade</label>
                 <input asp-for="Qtde" class="form-control" />
                 <span asp-validation-for="Qtde" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoMovE" class="control-label"> Movimentação</label>
+                <select asp-for="TipoMovE" class="form-control">
+                    @foreach (var tipoMovE in ViewBag.TipoMovE)
+                    {
+                        <option value="@tipoMovE">@tipoMovE</option>
+                    }
+                </select>
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-primary btn_margin_form"
