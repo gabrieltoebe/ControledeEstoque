@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tjU+QnzE54zNBRIajH6pIZ2TAzMjWO/WIBddMzTtHk0=",
+  "Hash": "Kj40gtYT+w0CXeW9hhY6E8MVNMObbqqEXpS0ndath3I=",
   "Source": "Control_Estoque",
   "BasePath": "_content/Control_Estoque",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\operator2.png"
+    },
+    {
+      "Identity": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\images\\Produtos.pdf",
+      "SourceId": "Control_Estoque",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\",
+      "BasePath": "_content/Control_Estoque",
+      "RelativePath": "images/Produtos.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Produtos.pdf"
     },
     {
       "Identity": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\js\\site.js",

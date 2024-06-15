@@ -2,6 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using QuestPDF;
+using QuestPDF.Drawing;
+using QuestPDF.Elements;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +38,8 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+QuestPDF.Settings.License = LicenseType.Community;
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

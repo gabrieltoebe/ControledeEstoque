@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lNC4oENrjRQ=",
+  "dgSpecHash": "zdKkuCst2l4=",
   "success": true,
   "projectFilePath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\Control_Estoque.csproj",
   "expectedPackageFiles": [
@@ -139,6 +139,7 @@
     "C:\\Users\\Daniel\\.nuget\\packages\\nuget.projectmodel\\6.9.1\\nuget.projectmodel.6.9.1.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\nuget.protocol\\6.9.1\\nuget.protocol.6.9.1.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\nuget.versioning\\6.9.1\\nuget.versioning.6.9.1.nupkg.sha512",
+    "C:\\Users\\Daniel\\.nuget\\packages\\questpdf\\2024.6.0\\questpdf.2024.6.0.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.6\\sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\sqlitepclraw.core\\2.1.6\\sqlitepclraw.core.2.1.6.nupkg.sha512",
     "C:\\Users\\Daniel\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
