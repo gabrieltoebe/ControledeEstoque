@@ -69,7 +69,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
             .HasForeignKey(ip => ip.CodProduto);
 
         modelBuilder.Entity<ProdutoCliente>()
-    .HasKey(pfr => new { pfr.IdCliente });
+    .HasKey(pfr => new { pfr.IdProdClient });
 
         modelBuilder.Entity<ProdutoCliente>()
             .HasOne(pfr => pfr.Cliente)
@@ -105,5 +105,5 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Control_Estoque.Models.InventarioProduto> InventarioProduto { get; set; } = default!;
 
-public DbSet<Control_Estoque.Models.Cliente> Cliente { get; set; } = default!;
+    public DbSet<Control_Estoque.Models.Cliente> Cliente { get; set; } = default!;
 }

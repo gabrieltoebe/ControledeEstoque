@@ -21,12 +21,29 @@ namespace Control_Estoque.Controllers
             _context = context;
         }
 
+
+
+       
+
+
+            
+
+            
+       
         // GET: Estoques
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Estoque.ToListAsync());
-           // return View(estoqueComContagemDeProdutos);
+
+            //return View(await _context.Estoque.ToListAsync());
+
+            var estoques = await _context.Estoque
+                .Include(e => e.EstoqueProdutos) // Include EstoqueProduto collection
+                .ToListAsync();
+
+           
+            return View(estoques);
+            // return View(estoqueComContagemDeProdutos);
         }
 
         // GET: Estoques/Details/5

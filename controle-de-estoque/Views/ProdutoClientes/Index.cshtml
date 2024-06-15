@@ -14,7 +14,11 @@
     <thead class="align-center">
         <tr>
             <th>
+<<<<<<< HEAD
                 Código fornecedor
+=======
+                @Html.DisplayNameFor(model => model.IdProdClient)
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
@@ -39,8 +43,13 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+<<<<<<< HEAD
             <td class="align-center">
                 @Html.DisplayFor(modelItem => item.IdProdFornRec)
+=======
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProdClient)
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             </td>
             <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Cliente.IdCliente)

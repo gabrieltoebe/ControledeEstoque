@@ -68,10 +68,15 @@ namespace Control_Estoque.Controllers
             ModelState.Remove("Cpf");
             ModelState.Remove("DataRecebimento");
             ModelState.Remove("Produto");
+<<<<<<< HEAD
+=======
+            ModelState.Remove("Cliente");
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             ModelState.Remove("Estoque");
 
             if (ModelState.IsValid)
             {
+<<<<<<< HEAD
                 var username = User.Identity?.Name;
                 var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
                 produtoCliente.Cpf = currentUser ?? new();
@@ -83,6 +88,73 @@ namespace Control_Estoque.Controllers
 
                 var estoque = await _context.Estoque.FindAsync(produtoCliente.IdEstoque);
                 produtoCliente.Estoque = estoque;
+=======
+                //var username = User.Identity?.Name;
+                //var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+                //var produtoIdEstoque = _context.Produto.FirstOrDefault(pid => pid.CodProduto ==produtoCliente.CodProduto);
+
+                //produtoFornecedorReceb.Cpf = currentUser ?? new();
+               produtoCliente.DataRecebimento = DateTime.Now;
+
+                var username = User.Identity?.Name;
+                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+               produtoCliente.Cpf = currentUser ?? new();
+
+
+                var produto = await _context.Produto.FindAsync(produtoCliente.CodProduto);
+               produtoCliente.Produto = produto;
+
+                var cliente = await _context.Cliente.FindAsync(produtoCliente.IdCliente);
+               produtoCliente.Cliente = cliente;
+
+
+                var estoque = await _context.Estoque.FindAsync(produtoCliente.IdEstoque);
+               produtoCliente.Estoque = estoque;
+
+                produtoCliente.DataRecebimento = System.DateTime.Now;
+                EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(produtoCliente.IdEstoque, produto.CodProduto);
+                // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+
+                //var quant = produtoBuscado.Qtde;
+                // int soma = quant +produtoCliente.Qtde;
+                // produtoBuscado.Qtde = soma;
+
+                //var produtoBuscado = _context.EstoqueProduto.Find(produtoFornecedorReceb.IdEstoque, produto.CodProduto);
+                //var comparapord = produtoBuscado2.Equals(Empty);
+
+                if(produtoBuscado==null)
+                {
+                    ModelState.AddModelError("IdEstoque", "Produto indisponível no estoque selecionado");
+                    ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "IdCliente", produtoCliente.IdCliente);
+                    ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", produtoCliente.IdEstoque);
+                    ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", produtoCliente.CodProduto);
+                    return View(produtoCliente);
+                }
+
+
+                int quant = produtoBuscado.Qtde;
+                //int soma = quant + produtoCliente.Qtde;
+                //produtoBuscado.Qtde = soma;
+
+
+                if (produtoCliente.Qtde <= quant)
+                {
+                    int resta = quant - produtoCliente.Qtde;
+                    produtoBuscado.Qtde = resta;
+                    _context.Update(produtoBuscado);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    // ModelState.AddModelError()
+                    ModelState.AddModelError("Quantidade", "Quantidade Indisponível para Saída");
+                    ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "IdCliente");
+                    ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque");
+                    ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
+                    return View(produtoCliente);
+                }
+
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
 
                 _context.Add(produtoCliente);
                 await _context.SaveChangesAsync();

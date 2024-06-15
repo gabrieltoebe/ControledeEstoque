@@ -8,16 +8,30 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using System.Threading.Tasks;
+using QuestPDF;
+using QuestPDF.Drawing;
+using QuestPDF.Elements;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using System.Web;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using QuestPDF.Previewer;
 
 namespace Control_Estoque.Controllers
 {
     public class ProdutosController : Controller
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly ApplicationDbContext _context;
 
-        public ProdutosController(ApplicationDbContext context)
+        public ProdutosController(ApplicationDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: Produtos
@@ -25,10 +39,77 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Produto.ToListAsync());
-            //  var ProdutosComNomesDosEstoques = await _context.Produto.Include(p => p.EstoqueProduto).ToListAsync();
 
-           // return View();
         }
+
+        // GET: PDF Produtos
+        [Authorize] // solo usuarios autenticados pueden crear productos
+        public async Task<IActionResult> GetPdf()
+        {
+            var produtos = _context.Produto.ToList();
+            foreach (var p in produtos)
+            {
+
+            }
+
+            var viewFolderPath = Path.Combine(_environment.ContentRootPath, "wwwroot/images");
+            var path = Path.Combine(viewFolderPath, "Produtos.pdf");
+           
+
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Margin(2, Unit.Centimetre);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(20));
+                    
+                    
+                    page.Header()
+                    
+                       .Text("Hello PDF!")
+                       .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
+                                 
+
+
+                    
+
+                    page.Content()
+                        .PaddingVertical(1, Unit.Centimetre)
+                        .Column(x =>
+                        {
+                            x.Spacing(20);
+                            foreach (var p in produtos)
+                            {
+                                x.Item().Text(p.NomeProduto);
+                            }
+                           
+                            x.Item().Text(Placeholders.LoremIpsum());
+                            x.Item().Image(Placeholders.Image(200, 100));
+                        });
+
+                    page.Footer()
+                        .AlignCenter()
+                        .Text(x =>
+                        {
+                            x.Span("Page ");
+                            x.CurrentPageNumber();
+                        });
+                });
+            }).GeneratePdf(path);
+            return Redirect("../images/Produtos.pdf");
+            //Response.Headers.Add("Content-Disposition", "attachment;  filename="+path);
+          //  Response.ContentType = "application/pdf";
+
+
+        }
+
+
+        // return View(await _context.Produto.ToListAsync());
+
+
 
         // GET: Produtos/Details/5
         [Authorize] // solo usuarios autenticados pueden crear productos
@@ -53,8 +134,8 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public IActionResult Create()
         {
-         //   ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
-          //  ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            //   ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            //  ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
 
             return View();
         }
@@ -96,7 +177,7 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             //ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
-          //  ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            //  ViewData["NomeEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
             if (id == null)
             {
                 return NotFound();
@@ -138,7 +219,7 @@ namespace Control_Estoque.Controllers
                     produto.UnidadeMedida = produto.UnidadeMedida.ToUpper();
                     var username = User.Identity?.Name;
                     var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
-                   
+
                     produto.Cpf = currentUser ?? new();
                     produto.DataCadastroProd = DateTime.Now;
 

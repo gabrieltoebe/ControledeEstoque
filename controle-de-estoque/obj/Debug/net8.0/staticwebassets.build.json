@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "OzHQdoQ5aRWHMrr+HVNYukyvW51O9ev/e8eSpmQZoIc=",
+=======
+  "Hash": "Kj40gtYT+w0CXeW9hhY6E8MVNMObbqqEXpS0ndath3I=",
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
   "Source": "Control_Estoque",
   "BasePath": "_content/Control_Estoque",
   "Mode": "Default",
@@ -1290,7 +1294,30 @@
       "OriginalItemSpec": "wwwroot/images/operator2.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "/home/evandro/Documentos/GitHub/ControledeEstoque/controle-de-estoque/wwwroot/js/site.js",
+=======
+      "Identity": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\images\\Produtos.pdf",
+      "SourceId": "Control_Estoque",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\",
+      "BasePath": "_content/Control_Estoque",
+      "RelativePath": "images/Produtos.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\Produtos.pdf"
+    },
+    {
+      "Identity": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\js\\site.js",
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
       "SourceId": "Control_Estoque",
       "SourceType": "Discovered",
       "ContentRoot": "/home/evandro/Documentos/GitHub/ControledeEstoque/controle-de-estoque/wwwroot/",

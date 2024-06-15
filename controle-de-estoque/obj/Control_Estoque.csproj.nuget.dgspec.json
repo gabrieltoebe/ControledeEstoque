@@ -75,6 +75,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2024.6.0, )"
             }
           },
           "imports": [

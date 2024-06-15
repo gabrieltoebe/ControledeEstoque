@@ -13,8 +13,17 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+<<<<<<< HEAD
       "Id": "/home/evandro/Documentos/GitHub/ControledeEstoque/controle-de-estoque/wwwroot/images/bg.png",
       "PackagePath": "staticwebassets/images/bg.png"
+=======
+      "Id": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\images\\Produtos.pdf",
+      "PackagePath": "staticwebassets\\images\\Produtos.pdf"
+    },
+    {
+      "Id": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\wwwroot\\images\\bg.png",
+      "PackagePath": "staticwebassets\\images\\bg.png"
+>>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
     },
     {
       "Id": "/home/evandro/Documentos/GitHub/ControledeEstoque/controle-de-estoque/wwwroot/images/inventory-operator.png",

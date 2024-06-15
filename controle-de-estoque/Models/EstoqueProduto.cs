@@ -2,12 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Control_Estoque.Models;
-public enum TipoMovE
-{
-
-    Entrada = 0,
-    Saida = 1
-}
 
 
 public class EstoqueProduto
@@ -33,7 +27,6 @@ public class EstoqueProduto
     public int Qtde { get; set; }
 
 
-    [EnumDataType(typeof(TipoMovE))]
-    public TipoMovE TipoMovE { get; set; }
+  
 
 }

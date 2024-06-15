@@ -39,7 +39,13 @@
                @item.NomeEstoque 
             </td>
             <td class="align-center">
-                 @* @item.QuantidadeDeItensNoEstoque *@
+                    @item.EstoqueProdutos.Count
+
+
+
+
+@* @Url.Action("QuantidadeProdutos", "Estoques", new { idEstoque = item.IdEstoque }) *@
+                    @* @item.QuantidadeDeItensNoEstoque *@
             </td>
             <td class="align-center">
                     @(item.AtivEstoque ? "Ativo" : "Desativado")
@@ -53,3 +59,4 @@
 }
     </tbody>
 </table>
+

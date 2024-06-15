@@ -9,6 +9,7 @@ using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
 using Control_Estoque.Data.Migrations;
+using NuGet.Packaging.Signing;
 
 namespace Control_Estoque.Controllers
 {
@@ -111,15 +112,21 @@ namespace Control_Estoque.Controllers
 
                 if (produtoBuscado == null)
                 {
-                    // Caso a quantidade seja nula, não realizamos a soma
-                    ModelState.AddModelError("Produto", "Produto Não Cadastrado");
-                    ViewData["IdFornecedor"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
-                    ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
-                    ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
-                    return View(produtoFornecedorReceb);
+                    EstoqueProduto estoqueProduto = new EstoqueProduto()
+                    {
+                        Estoque=estoque,
+                        Produto=produto,
+                        CodProduto=produtoFornecedorReceb.CodProduto,
+                        EstoqueId=produtoFornecedorReceb.IdEstoque,
+                        Qtde=0
+                    };
 
-                }
-                else{
+                    produtoBuscado = estoqueProduto;
+                    _context.Add(estoqueProduto);
+                    await _context.SaveChangesAsync();
+                    
+                 }
+               
 
                    int quant = produtoBuscado.Qtde;
                    int soma = quant + produtoFornecedorReceb.Qtde;
@@ -127,9 +134,8 @@ namespace Control_Estoque.Controllers
 
                    _context.Update(produtoBuscado);
                    await _context.SaveChangesAsync();                    
-                }
-
                
+                            
                 
                                 
                 /*
@@ -148,9 +154,7 @@ namespace Control_Estoque.Controllers
                 }
                 */
                 
-
-
-                // produtoFornecedorReceb.IdEstoque = 10; //produtoIdEstoque.IdEstoque;
+                  // produtoFornecedorReceb.IdEstoque = 10; //produtoIdEstoque.IdEstoque;
 
                 _context.Add(produtoFornecedorReceb);
                 await _context.SaveChangesAsync();
