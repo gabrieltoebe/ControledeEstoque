@@ -89,7 +89,27 @@ namespace Control_Estoque.Controllers
 
 
                 EstoqueProduto produtoBuscado = _context.EstoqueProduto.Find(inventario.IdEstoque, produto.CodProduto);
-               // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
+
+
+                if (produtoBuscado == null)
+                {
+                    EstoqueProduto estoqueProduto = new EstoqueProduto()
+                    {
+
+                        Estoque = inventario.Estoque,
+                        Produto = produto,
+                        CodProduto = produto.CodProduto,
+                        EstoqueId = inventario.IdEstoque,
+                        Qtde = 0
+                    };
+
+                    produtoBuscado = estoqueProduto;
+                    _context.Add(estoqueProduto);
+                    await _context.SaveChangesAsync();
+
+                }
+
+                // var estoqueProduto = await _context.EstoqueProduto.FindAsync(inventario.Estoque, produto);
                 var quant = produtoBuscado.Qtde;
 
                 if (inventarioProduto.TipoMov.Equals(Models.TipoMov.Saida))
