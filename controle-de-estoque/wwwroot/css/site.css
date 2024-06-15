@@ -3,42 +3,49 @@ html {
     font-family: system-ui;
     margin: 0;
     padding: 0;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
     html {
         font-size: 16px;
-        font-family: system-ui;
-        margin: 0;
-        padding: 0;
     }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-    font-family: system-ui;
-}
-
 body {
-    font-family: system-ui;
     margin: 0;
     padding: 0;
+    font-family: system-ui;
 }
 
-.display-5{
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-item {
+    margin: 0 5px;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.display-5 {
     margin-top: 40px;
 }
-/*override*/
+
 .form-control {
     margin-bottom: 10px;
 }
 
-/*override*/
 .input-placeholder::placeholder {
     font-size: 12px;
     color: grey;
@@ -47,24 +54,24 @@ body {
 .title {
     margin-bottom: 30px;
     font-size: 32px;
-    font-family: system-ui;
-    justify-content: center;
 }
 
-/*override*/
 .btn {
     font-size: 14px;
-    font-family: system-ui;
     margin-bottom: 10px;
 }
+
 .btn-lg {
     width: 100%;
-    text-align:left;
+    text-align: left;
+}
+
+.btn_margin_form{
+    width: 150px;
 }
 
 .option {
     font-size: 10px;
-    font-family: system-ui;
 }
 
 .container2 {
@@ -76,64 +83,86 @@ body {
 }
 
 .image-side {
-    width:60%;
+    width: 60%;
     height: 50%;
     margin-top: 100px;
 }
 
 .blank-side {
     width: 40%;
-    right:0;
+    right: 0;
     margin-left: 300px;
     padding: 0;
     text-align: right;
 }
 
-.align-center{
+.align-center {
     text-align: center;
     justify-content: center;
     vertical-align: middle;
+    align-self: center;
+    align-items: center;
 }
+
 .align-left {
     text-align: left;
     vertical-align: middle;
     justify-content: center;
 }
-.align-right{
+
+.align-right {
     text-align: right;
     vertical-align: middle;
 }
 
-.policy-container{
+.policy-container {
     overflow: auto;
     height: 90%;
 }
-.citacao{
+
+.citacao {
     text-align: justify;
-    font-style: italic;    
+    font-style: italic;
     font-size: 16px;
     color: gray;
     margin-top: 150px;
 }
 
-.title_home{
+.title_home {
     margin-top: 110px;
     font-size: 40px;
     text-align: left;
 }
 
-.home-accordion{ 
-    height: 50%;   
-    width:50%;
+.home-accordion {
+    height: 50%;
+    width: 50%;
     margin-left: 0;
     margin-top: -300px;
 }
 
-
-.button-22 {
+.button-38{
     align-items: center;
     appearance: button;
-    background-color: #003675;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    justify-content: center;
+    margin: 0;
+    padding: 2%;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    transition: color 0.13s ease-in-out, background 0.13s ease-in-out, opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+    user-select: none;
+    width: 150px;
+}
+.button-23{
+    align-items: center;
+    appearance: button;
     border-radius: 8px;
     border-style: none;
     box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -147,17 +176,42 @@ body {
     line-height: 1.15;
     justify-content: center;
     margin: 0;
-    position: relative;
-    margin-left: 5px;
     padding: 10px 21px;
     text-align: center;
     text-transform: none;
     text-decoration: none;
-    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
+    transition: color 0.13s ease-in-out, background 0.13s ease-in-out, opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
     user-select: none;
-    width: 146px;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    width: 200px;
+}
+
+.button-22 {
+    align-items: center;
+    appearance: button;
+    border-radius: 8px;
+    border-style: none;
+    box-shadow: rgb(255, 255, 255) 0 1px 2px inset;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    font-size: 100%;
+    line-height: 1.15;
+    justify-content: center;
+    margin-top: 5%;
+    padding: 1%;
+    text-align: center;
+    text-transform: none;
+    text-decoration: none;
+    transition: color 0.13s ease-in-out, background 0.13s ease-in-out, opacity 0.13s ease-in-out, box-shadow 0.13s ease-in-out;
+    user-select: none;
+    width: 200px;
+}
+
+.button-22 {
+    background-color: #003675;
 }
 
 .button-22:active {
@@ -168,232 +222,59 @@ body {
     background-color: #1C84FF;
 }
 
-
-.button-38 {
-    background-color: #FFFFFF;
-    border: 0;
-    border-radius: .5rem;
-    box-sizing: border-box;
-    color: #111827;
-    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    font-size: 100%;
-    line-height: 1.5rem;
-    padding: .75rem 1rem;
-    text-align: center;
-    text-decoration: none #D1D5DB solid;
-    text-decoration-thickness: auto;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-
-    align-items: center;
-    appearance: button;
-    border-radius: 8px;
-    border-style: none;    
-    flex-direction: row;
-    flex-shrink: 0;
-    font-size: 100%;
-    line-height: 1.15;
-    justify-content: center;
-    margin: 0;    
-    margin-left: 2px;
-    padding: 10px 21px;
-    user-select: none;
-    width: 130px;
-    }
-
-
-.button-38:hover {
-    background-color: rgb(249, 250, 251);
-}
-
-.button-38:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-}
-
-.button-38:focus-visible {
-    box-shadow: none;
-}
-
-.btn_margin_form{
-    margin-top: 10x;
-    width: 130px;
-}
-
-.subtitle{
-    margin-bottom: 30px;
-    font-size: 24px;
-    font-family: system-ui;
-    justify-content: center;
-}
-
-.btn_nav-secondary{
-    margin-top: 5px;
-}
-
-/* Estilo do bot�o principal */
-.dropbtn {    
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-/* Container que mant�m os itens do dropdown */
-.dropdown {
-    position: relative;
-    display: inline;
-}
-
-/* Conte�do escondido */
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f900;
-    min-width:8%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
-    z-index: 1;
-    padding: 1%;
-    margin-top: 4%;
-}
-
-    /* Conte�do do dropdown (bot�es) */
-    .a-content {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        position:sticky;
-        display: inline-block;
-        width: 30%;
-        margin-left: 59%;
-        margin-bottom: 5px;
-    }
-
-     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
-    .dropbtn:focus+.dropdown-content,
-    .dropbtn:hover+.dropdown-content,
-    .dropdown-content:hover,
-    .dropdown:focus-within .dropdown-content {
-        display: block;
-    }
-
-    /* Estilo ao passar o mouse sobre os bot�es do dropdown */
-    .dropdown-content button:hover {
-        background-color: #ddd;
-    }
-    
-    
-/* Conte�do escondido */
-.dropdown-consultas {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f900;
-    min-width:8%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
-    z-index: 1;
-    padding: 1%;
-    margin-top: 4%;
-}
-
-    /* Conte�do do dropdown (bot�es) */
-    .a-consultas {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        position:sticky;
-        display: inline-block;
-        width: 30%;
-        margin-left: 97%;
-        margin-bottom: 5px;
-    }
-
-     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
-    .dropbtn:focus+.dropdown-consultas,
-    .dropbtn:hover+.dropdown-consultas,
-    .dropdown-consultas:hover,
-    .dropdown:focus-within .dropdown-consultas {
-        display: block;
-    }
-
-    /* Estilo ao passar o mouse sobre os bot�es do dropdown */
-    .dropdown-consultas button:hover {
-        background-color: #ddd;
-    }   
-
-/* Conte�do escondido */
-.dropdown-movimentacoes {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f900;
-    min-width:8%;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
-    z-index: 1;
-    padding: 1%;
-    margin-top: 3.7%;
-}
-
-    /* Conte�do do dropdown (bot�es) */
-    .a-movimentacoes {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        position:sticky;
-        display: inline-block;
-        width: 35%;
-        margin-left: 139%;
-        margin-bottom: 3px;
-    }
-
-     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
-    .dropbtn:focus+.dropdown-movimentacoes,
-    .dropbtn:hover+.dropdown-movimentacoes,
-    .dropdown-movimentacoes:hover,
-    .dropdown:focus-within .dropdown-movimentacoes {
-        display: block;
-    }
-
-    /* Estilo ao passar o mouse sobre os bot�es do dropdown */
-    .dropdown-movimentacoes button:hover {
-        background-color: #ddd;
-    }
-   
-.button-23 {
-    align-items: center;
-    appearance: button;
+.button-23 ,
+.button-38{
     background-color: #032245;
-    border-radius: 8px;
-    border-style: none;
-    box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: row;
-    flex-shrink: 0;
-    font-size: 100%;
-    line-height: 1.15;
-    justify-content: center;
-    margin: 0;
-    position: relative;
-    margin-left: 5px;
-    padding: 10px 21px;
-    text-align: center;
-    text-transform: none;
-    text-decoration: none;
-    transition: color .13s ease-in-out, background .13s ease-in-out, opacity .13s ease-in-out, box-shadow .13s ease-in-out;
-    user-select: none;
-    width: 146px;
-    -webkit-user-select: none;
-    touch-action: manipulation;
 }
 
-.button-23:active {
+.button-23:active,
+.button-38:active {
     background-color: #00142b;
 }
 
-.button-23:hover {
+.button-23:hover,
+.button-38:hover {
     background-color: #013575;
+}
+
+.div-login{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    align-items: start;
+    align-content: center;
+}
+
+.collapse{
+    margin: auto;
+    margin-left: 5%;
+    padding: 1%;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-content,
+.dropdown-consultas,
+.dropdown-movimentacoes {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a,
+.dropdown-consultas a,
+.dropdown-movimentacoes a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-item.dropdown:hover .dropdown-content,
+.nav-item.dropdown:hover .dropdown-consultas,
+.nav-item.dropdown:hover .dropdown-movimentacoes {
+    display: block;
 }
