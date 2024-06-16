@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Control_Estoque.Data;
 using Control_Estoque.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Control_Estoque.Controllers
 {
@@ -21,6 +22,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoClientes
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProdutoCliente.Include(p => p.Cliente).Include(p => p.Estoque).Include(p => p.Produto);
@@ -31,6 +33,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoClientes/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -56,6 +59,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoClientes/Create
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "NomeCliente");
@@ -67,6 +71,7 @@ namespace Control_Estoque.Controllers
         // POST: ProdutoClientes/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdProdFornRec,IdCliente,CodProduto,IdEstoque,Qtde,DataRecebimento")] ProdutoCliente produtoCliente)
@@ -156,6 +161,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoClientes/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -177,6 +183,7 @@ namespace Control_Estoque.Controllers
         // POST: ProdutoClientes/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdProdFornRec,IdCliente,CodProduto,IdEstoque,Qtde,DataRecebimento")] ProdutoCliente produtoCliente)
@@ -213,6 +220,7 @@ namespace Control_Estoque.Controllers
         }
 
         // GET: ProdutoClientes/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -234,6 +242,7 @@ namespace Control_Estoque.Controllers
         }
 
         // POST: ProdutoClientes/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
