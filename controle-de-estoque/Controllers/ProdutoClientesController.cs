@@ -42,21 +42,25 @@ namespace Control_Estoque.Controllers
                 .Include(p => p.Cliente)
                 .Include(p => p.Cpf)
                 .Include(p => p.Produto)
+                .Include(p => p.Estoque)
                 .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (produtoCliente == null)
             {
                 return NotFound();
             }
 
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cliente");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "Estoque");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "Produto");
             return View(produtoCliente);
         }
 
         // GET: ProdutoClientes/Create
         public IActionResult Create()
         {
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "IdCliente");
-            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque");
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "NomeCliente");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
             return View();
         }
 

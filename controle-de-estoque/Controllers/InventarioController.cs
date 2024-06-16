@@ -24,7 +24,10 @@ namespace Control_Estoque.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Inventario.ToListAsync());
+            var applicationDbContext = _context.Inventario.Include(p => p.Estoque);
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque");
+            return View(await applicationDbContext.ToListAsync());
+            //return View(await _context.Inventario.ToListAsync());
         }
 
         // GET: Inventario/Details/5 

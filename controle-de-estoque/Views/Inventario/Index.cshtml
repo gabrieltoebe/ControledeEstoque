@@ -13,7 +13,7 @@
     <thead class="align-center">
         <tr>
             <th>
-                Código estoque
+                Estoque
             </th>
            
             <th>
@@ -26,7 +26,7 @@
 @foreach (var item in Model) {
         <tr>
             <td class="align-center">
-                @Html.DisplayFor(modelItem => item.IdEstoque)
+                @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
             </td>
                
             <td class="align-center">
