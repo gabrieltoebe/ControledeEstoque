@@ -1,20 +1,20 @@
 ﻿@model IEnumerable<Control_Estoque.Models.ProdutoCliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "VENDAS";
 }
 
-<h1>Index</h1>
+<h1>Vendas</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<form asp-area="" asp-controller="ProdutoClientes" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;"> Adicionar Vendas </button>
+</form>
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.IdProdClient)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
             </th>
@@ -36,17 +36,17 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+           @*<td>
                 @Html.DisplayFor(modelItem => item.IdProdClient)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cliente.IdCliente)
+                @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.CodProduto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estoque.IdEstoque)
+                @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Qtde)
@@ -55,9 +55,7 @@
                 @Html.DisplayFor(modelItem => item.DataRecebimento)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCliente">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCliente">Delete</a>
+                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdCliente">Detalhes</a>
             </td>
         </tr>
 }

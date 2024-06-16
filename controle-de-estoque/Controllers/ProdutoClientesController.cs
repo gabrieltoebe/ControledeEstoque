@@ -24,6 +24,9 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProdutoCliente.Include(p => p.Cliente).Include(p => p.Estoque).Include(p => p.Produto);
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "Cliente");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "Estoque");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "Produto");
             return View(await applicationDbContext.ToListAsync());
         }
 
