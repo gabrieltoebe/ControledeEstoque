@@ -9,27 +9,121 @@ using Control_Estoque.Data;
 using Control_Estoque.Models;
 using Microsoft.AspNetCore.Authorization;
 using Control_Estoque.Data.Migrations;
+using System.Threading.Tasks;
+using QuestPDF;
+using QuestPDF.Drawing;
+using QuestPDF.Elements;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using System.Web;
+using Microsoft.Extensions.Hosting.Internal;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using QuestPDF.Previewer;
 
 namespace Control_Estoque.Controllers
 {
     public class EstoquesController : Controller
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly ApplicationDbContext _context;
+        private string AtEstoq;
 
-        public EstoquesController(ApplicationDbContext context)
+        public EstoquesController(ApplicationDbContext context, IWebHostEnvironment environment)
         {
             _context = context;
+            _environment = environment;
+            
+        }
+
+        // GET: PDF Estoques
+        [Authorize] // solo usuarios autenticados pueden crear productos
+        public async Task<IActionResult> GetPdf()
+        {
+            var produtos = _context.Estoque.Include(p => p.EstoqueProdutos).ToList();
+            var username = User.Identity?.Name;
+            var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
+
+            var viewFolderPath = Path.Combine(_environment.ContentRootPath, "wwwroot/images");
+            var path = Path.Combine(viewFolderPath, "Estoques.pdf");
+
+
+
+            Document.Create(container =>
+            {
+                container.Page(page =>
+                {
+                    page.Size(PageSizes.A4);
+                    page.Margin(2, Unit.Centimetre);
+                    page.PageColor(Colors.White);
+                    page.DefaultTextStyle(x => x.FontSize(12));
+
+
+                    page.Header()
+
+                       .Text("Relatorio de Estoques ").SemiBold().FontSize(20).FontColor(Colors.Blue.Medium).AlignCenter();
+
+                    page.Content().
+                     Table(table =>
+                     {
+                     table.ColumnsDefinition(columns =>
+                     {
+                         columns.RelativeColumn(3);
+                         columns.RelativeColumn(2);
+                         columns.RelativeColumn(1);
+
+                     });
+
+                     table.Cell().ColumnSpan(3).Text("------------------------------").AlignCenter();
+                     table.Cell().ColumnSpan(3).AlignCenter();
+                     table.Cell().Background(Colors.Grey.Lighten3).Text("Estoque").AlignCenter();
+                     table.Cell().Background(Colors.Grey.Lighten3).Text("Status").AlignCenter();
+                     table.Cell().Background(Colors.Grey.Lighten3).Text("Produtos no Estoque").AlignCenter();
+
+
+                     foreach (var p in produtos)
+                     {
+                         //table.Cell().ColumnSpan(4).Text("Total width: 300px");
+                         table.Cell().Text(p.NomeEstoque).FontSize(8);
+                         if (p.AtivEstoque == true) { AtEstoq = "Ativo"; }else{ AtEstoq = "Desativado"; };
+                             table.Cell().Text(AtEstoq).AlignCenter().FontSize(8);
+                             table.Cell().AlignCenter().Text(p.EstoqueProdutos.Count).FontSize(8);
+                             
+                         }
+                     });
+
+       
+                    page.Footer()
+                        .AlignCenter()
+                        .Text(x =>
+                        {
+                            x.Span("Pagina ").FontSize(6);
+                            x.CurrentPageNumber().FontSize(6);
+                            x.Line("").FontSize(6);
+                            x.Line(DateTime.Now.ToString()).FontSize(6);
+                            x.Span("_Impreso por: ").FontSize(6);
+                            x.Line(currentUser.UserName).FontSize(6);
+                        });
+                });
+            }).GeneratePdf(path);
+            return Redirect("../images/Estoques.pdf");
+            //Response.Headers.Add("Content-Disposition", "attachment;  filename="+path);
+            //  Response.ContentType = "application/pdf";
+
+
         }
 
 
 
-       
 
 
-            
 
-            
-       
+
+
+
+
+
         // GET: Estoques
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> Index()

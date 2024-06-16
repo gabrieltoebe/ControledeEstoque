@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\wwwroot\\images\\Clientes.pdf",
+      "PackagePath": "staticwebassets\\images\\Clientes.pdf"
+    },
+    {
+      "Id": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\wwwroot\\images\\Estoques.pdf",
+      "PackagePath": "staticwebassets\\images\\Estoques.pdf"
+    },
+    {
+      "Id": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\wwwroot\\images\\Fornecedor.pdf",
+      "PackagePath": "staticwebassets\\images\\Fornecedor.pdf"
+    },
+    {
       "Id": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\Oficial_W\\controle-de-estoque\\wwwroot\\images\\Produtos.pdf",
       "PackagePath": "staticwebassets\\images\\Produtos.pdf"
     },
