@@ -47,11 +47,8 @@ namespace Control_Estoque.Controllers
         public async Task<IActionResult> GetPdf()
         {
             var produtos = _context.Produto.Include(p => p.Cpf).ToList();
-            /*
-            foreach (var p in produtos)
-            {
-
-            }*/
+            var username = User.Identity?.Name;
+            var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
 
             var viewFolderPath = Path.Combine(_environment.ContentRootPath, "wwwroot/images");
             var path = Path.Combine(viewFolderPath, "Produtos.pdf");
@@ -84,7 +81,7 @@ namespace Control_Estoque.Controllers
                              });
 
                              table.Cell().ColumnSpan(4).Text("------------------------------").AlignCenter();
-                             table.Cell().ColumnSpan(4).Text(" ").AlignCenter();
+                             table.Cell().ColumnSpan(4).AlignCenter();
                              table.Cell().Background(Colors.Grey.Lighten3).Text("Produto").AlignCenter();
                              table.Cell().Background(Colors.Grey.Lighten3).Text("Descrição").AlignCenter();
                              table.Cell().Background(Colors.Grey.Lighten3).Text("Data Cadastro").AlignCenter();
@@ -140,8 +137,12 @@ namespace Control_Estoque.Controllers
                         .AlignCenter()
                         .Text(x =>
                         {
-                            x.Span("Page ");
-                            x.CurrentPageNumber();
+                            x.Span("Pagina ").FontSize(6);
+                            x.CurrentPageNumber().FontSize(6);
+                            x.Line("").FontSize(6);
+                            x.Line(DateTime.Now.ToString()).FontSize(6);
+                            x.Span("_Impreso por: ").FontSize(6);
+                            x.Line(currentUser.UserName).FontSize(6);
                         });
                 });
             }).GeneratePdf(path);
