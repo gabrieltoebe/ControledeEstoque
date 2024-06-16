@@ -4,14 +4,14 @@
     ViewData["Title"] = "VENDAS";
 }
 
-<h1>Vendas</h1>
+<h1 class="title" style="text-align: center;">Vendas</h1>
 
 <form asp-area="" asp-controller="ProdutoClientes" asp-action="Create" method="get">
     <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;"> Adicionar Vendas </button>
 </form>
-<table class="table">
+<table class="table table-sm table-striped table-bordered ">
     <thead>
-        <tr>
+        <tr class="align-center">
             @*<th>
                 @Html.DisplayNameFor(model => model.IdProdClient)
             </th>*@
@@ -30,31 +30,31 @@
             <th>
                 @Html.DisplayNameFor(model => model.DataRecebimento)
             </th>
-            <th></th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-           @*<td>
+           @*<td class="align-center">
                 @Html.DisplayFor(modelItem => item.IdProdClient)
             </td>*@
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.Qtde)
             </td>
-            <td>
+            <td class="align-center">
                 @Html.DisplayFor(modelItem => item.DataRecebimento)
             </td>
-            <td>
+            <td class="align-center">
                 <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdCliente">Detalhes</a>
             </td>
         </tr>

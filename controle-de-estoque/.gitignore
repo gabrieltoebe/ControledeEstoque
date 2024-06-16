@@ -442,5 +442,7 @@ msbuild.err
 msbuild.wrn
 
 # Ignore pastas BIN e OBJ
-bin/
-obj/
+bin/*
+obj/*
+/bin/*
+/obj/*
