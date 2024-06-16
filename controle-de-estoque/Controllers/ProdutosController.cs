@@ -46,11 +46,12 @@ namespace Control_Estoque.Controllers
         [Authorize] // solo usuarios autenticados pueden crear productos
         public async Task<IActionResult> GetPdf()
         {
-            var produtos = _context.Produto.ToList();
+            var produtos = _context.Produto.Include(p => p.Cpf).ToList();
+            /*
             foreach (var p in produtos)
             {
 
-            }
+            }*/
 
             var viewFolderPath = Path.Combine(_environment.ContentRootPath, "wwwroot/images");
             var path = Path.Combine(viewFolderPath, "Produtos.pdf");
@@ -64,32 +65,77 @@ namespace Control_Estoque.Controllers
                     page.Size(PageSizes.A4);
                     page.Margin(2, Unit.Centimetre);
                     page.PageColor(Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(20));
+                    page.DefaultTextStyle(x => x.FontSize(12));
                     
                     
                     page.Header()
                     
-                       .Text("Hello PDF!")
-                       .SemiBold().FontSize(36).FontColor(Colors.Blue.Medium);
-                                 
+                       .Text("Relatorio de Produtos ").SemiBold().FontSize(20).FontColor(Colors.Blue.Medium).AlignCenter();
+                                       
+                        page.Content().
+                         Table(table =>
+                         {
+                             table.ColumnsDefinition(columns =>
+                             {
+                                 columns.RelativeColumn(2);
+                                 columns.RelativeColumn(3);
+                                 columns.RelativeColumn(2);
+                                 columns.RelativeColumn(1);
+                             });
 
+                             table.Cell().ColumnSpan(4).Text("------------------------------").AlignCenter();
+                             table.Cell().ColumnSpan(4).Text(" ").AlignCenter();
+                             table.Cell().Background(Colors.Grey.Lighten3).Text("Produto").AlignCenter();
+                             table.Cell().Background(Colors.Grey.Lighten3).Text("Descrição").AlignCenter();
+                             table.Cell().Background(Colors.Grey.Lighten3).Text("Data Cadastro").AlignCenter();
+                             table.Cell().Background(Colors.Grey.Lighten3).Text("UM").AlignCenter();
 
+                             foreach (var p in produtos)
+                            {
+                                 //table.Cell().ColumnSpan(4).Text("Total width: 300px");
+                                 table.Cell().Text(p.NomeProduto).FontSize(8);
+                                 table.Cell().Text(p.Descrição).FontSize(8);
+                                 table.Cell().Text(p.DataCadastroProd).FontSize(8);
+                                 table.Cell().Text(p.UnidadeMedida).FontSize(8).AlignCenter();
+                             }
+                         });
                     
+
+                    /*
+                    page.Content().
+                        Table(table =>
+                    {
+                        table.ColumnsDefinition(columns =>
+                        {
+                            columns.RelativeColumn(1);
+                            columns.RelativeColumn(2);
+                            columns.RelativeColumn(3);
+                            columns.RelativeColumn(4);
+                        });
+
+                        table.Cell().ColumnSpan(4).Text("Total width: 300px");
+                        table.Cell().Text("777");
+                        table.Cell().Text("7777"); ;  
+                        table.Cell().Text("7777"); ;
+                        table.Cell().Text("7777"); ;
+                    });
+
+                   // separador
 
                     page.Content()
                         .PaddingVertical(1, Unit.Centimetre)
                         .Column(x =>
                         {
-                            x.Spacing(20);
+                            x.Spacing(12);
                             foreach (var p in produtos)
                             {
-                                x.Item().Text(p.NomeProduto);
+                                x.Item().Text(p.Produto.NomeProduto);
                             }
                            
-                            x.Item().Text(Placeholders.LoremIpsum());
-                            x.Item().Image(Placeholders.Image(200, 100));
+                           // x.Item().Text(Placeholders.LoremIpsum());
+                            x.Item().Image(Placeholders.Image(20, 10));
                         });
-
+                        */
                     page.Footer()
                         .AlignCenter()
                         .Text(x =>
