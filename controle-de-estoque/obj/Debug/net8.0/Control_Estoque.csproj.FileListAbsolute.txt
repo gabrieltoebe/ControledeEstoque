@@ -3802,3 +3802,16 @@ D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\bin\Debug
 D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\bin\Debug\net8.0\runtimes\win-x64\native\QuestPdfSkia.dll
 D:\Dany_Doc\9. Projeto Empreendedor I ADS\OficialW\controle-de-estoque\bin\Debug\net8.0\runtimes\win-x86\native\QuestPdfSkia.dll
 >>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.csproj.AssemblyReference.cache
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.GeneratedMSBuildEditorConfig.editorconfig
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.AssemblyInfoInputs.cache
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.AssemblyInfo.cs
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.csproj.CoreCompileInputs.cache
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.MvcApplicationPartsAssemblyInfo.cs
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.MvcApplicationPartsAssemblyInfo.cache
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.RazorAssemblyInfo.cache
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.RazorAssemblyInfo.cs
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.sourcelink.json
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.dll
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\refint\Control_Estoque.dll
+F:\Ativita\EAD _ Uniftec\9. Projeto Empreendedor I ADS\_Oficial_W\controle-de-estoque\obj\Debug\net8.0\Control_Estoque.pdb
