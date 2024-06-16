@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Control_Estoque.Models.EstoqueProduto>
+
+@{
+    ViewData["Title"] = "Movimentar Estoque";
+}
+
+<h1 class="title" style="text-align: center;">Novo Movimento</h1>
+<form asp-area="" asp-controller="EstoqueProduto" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">
+        Novo Movimento
+    </button>
+</form>
+
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                Quantidade
+            </th>
+            <!-- <th>Opções</th>-->
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque.NomeEstoque)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.Produto.NomeProduto)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.Qtde)
+            </td>
+            <!--<td class="align-center ">
+                    <a href="Url.Action("Adicionar", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })"
+                       class="btn btn-primary">Adicionar</a>
+                    <a href="Url.Action("Edit", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })"
+                        class="btn btn-secondary">Editar</a>
+                    <a href="Url.Action("Retirar", new { Estoque = item.Estoque.IdEstoque, Produto = item.Produto.CodProduto })"
+                       class="btn btn-danger">Retirar</a>
+                </td>-->
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+﻿@model Control_Estoque.Models.ProdutoFornecedorReceb
+
+@{
+    ViewData["Title"] = "Novo recebimento";
+}
+
+<h1>Cadastro de recebimento</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdFornecedor" class="control-label">Fornecedor</label>
+                <select asp-for="IdFornecedor" class ="form-control" asp-items="ViewBag.IdFornecedor"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodProduto" class="control-label">Produto</label>
+                <select asp-for="CodProduto" class ="form-control" asp-items="ViewBag.CodProduto"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdEstoque" class="control-label">Estoque</label>
+                <select asp-for="IdEstoque" class="form-control" asp-items="ViewBag.IdEstoque"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qtde" class="control-label">Quantidade</label>
+                <input asp-for="Qtde" class="form-control" />
+                <span asp-validation-for="Qtde" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary btn_margin_form" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<form asp-area="" asp-controller="ProdutoEstoqueRecebs" asp-action="Index" method="get" class="form-group">
+    <button type="submit" class="btn btn-danger btn_margin_form">Voltar</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

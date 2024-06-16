@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Control_Estoque.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1 class ="title" style="text-align: center;">Lista de clientes cadastrados</h1>
+
+<form asp-area="" asp-controller="Clientes" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo Cliente</button>
+</form>
+<div style="overflow: auto; ">
+    <table class="table table-sm table-striped table-bordered ">
+        <thead class="align-center">
+            <tr>
+                <th>Código</th>
+                <th>Cliente</th>
+                <th>Estado</th>
+                <th>Telefone</th>
+                <th>Endereço</th>
+                <th>Opções</th>
+            </tr>
+        </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.EstadoCliente)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.TelefoneCliente)
+            </td>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.EnderecoCliente)
+            </td>
+            <td class="align-center">
+                <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@item.IdCliente">Editar</a> 
+                    @*<a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |*@
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdCliente">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

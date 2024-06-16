@@ -8874,19 +8874,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nany\\.nuget\\packages\\": {}
+    "C:\\Users\\Daniel\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\_Oficial_W\\controle-de-estoque\\Control_Estoque.csproj",
+      "projectUniqueName": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\Control_Estoque.csproj",
       "projectName": "Control_Estoque",
-      "projectPath": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\_Oficial_W\\controle-de-estoque\\Control_Estoque.csproj",
-      "packagesPath": "C:\\Users\\Nany\\.nuget\\packages\\",
-      "outputPath": "F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\_Oficial_W\\controle-de-estoque\\obj\\",
+      "projectPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\Control_Estoque.csproj",
+      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
+      "outputPath": "D:\\Dany_Doc\\9. Projeto Empreendedor I ADS\\OficialW\\controle-de-estoque\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Nany\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8983,13 +8988,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file F:\\Ativita\\EAD _ Uniftec\\9. Projeto Empreendedor I ADS\\_Oficial_W\\controle-de-estoque\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

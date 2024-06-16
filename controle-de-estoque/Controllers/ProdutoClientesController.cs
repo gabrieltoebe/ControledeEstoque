@@ -51,10 +51,9 @@ namespace Control_Estoque.Controllers
         // GET: ProdutoClientes/Create
         public IActionResult Create()
         {
-            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "NomeCliente");
-            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "NomeEstoque");
-            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "NomeProduto");
-            ViewData["IdProdFornRec"] = new SelectList(_context.Fornecedor, "IdFornecedor", "NomeFornecedor");
+            ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "IdCliente");
+            ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque");
+            ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto");
             return View();
         }
 
@@ -63,32 +62,16 @@ namespace Control_Estoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCliente,CodProduto,IdEstoque,Qtde")] ProdutoCliente produtoCliente)
+        public async Task<IActionResult> Create([Bind("IdProdFornRec,IdCliente,CodProduto,IdEstoque,Qtde,DataRecebimento")] ProdutoCliente produtoCliente)
         {
             ModelState.Remove("Cpf");
             ModelState.Remove("DataRecebimento");
             ModelState.Remove("Produto");
-<<<<<<< HEAD
-=======
             ModelState.Remove("Cliente");
->>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             ModelState.Remove("Estoque");
 
             if (ModelState.IsValid)
             {
-<<<<<<< HEAD
-                var username = User.Identity?.Name;
-                var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
-                produtoCliente.Cpf = currentUser ?? new();
-
-                produtoCliente.DataRecebimento = DateTime.Now;
-
-                var produto = await _context.Produto.FindAsync(produtoCliente.CodProduto);
-                produtoCliente.Produto = produto;
-
-                var estoque = await _context.Estoque.FindAsync(produtoCliente.IdEstoque);
-                produtoCliente.Estoque = estoque;
-=======
                 //var username = User.Identity?.Name;
                 //var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
                 //var produtoIdEstoque = _context.Produto.FirstOrDefault(pid => pid.CodProduto ==produtoCliente.CodProduto);
@@ -154,7 +137,6 @@ namespace Control_Estoque.Controllers
                     return View(produtoCliente);
                 }
 
->>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
 
                 _context.Add(produtoCliente);
                 await _context.SaveChangesAsync();
@@ -162,9 +144,7 @@ namespace Control_Estoque.Controllers
             }
             ViewData["IdCliente"] = new SelectList(_context.Cliente, "IdCliente", "IdCliente", produtoCliente.IdCliente);
             ViewData["IdEstoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", produtoCliente.IdEstoque);
-            ViewData["Estoque"] = new SelectList(_context.Estoque, "IdEstoque", "IdEstoque", produtoCliente.Estoque);
             ViewData["CodProduto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", produtoCliente.CodProduto);
-            ViewData["Produto"] = new SelectList(_context.Produto, "CodProduto", "CodProduto", produtoCliente.Produto);
             return View(produtoCliente);
         }
 

@@ -1,24 +1,19 @@
 ﻿@model IEnumerable<Control_Estoque.Models.ProdutoCliente>
 
 @{
-    ViewData["Title"] = "Vendas";
+    ViewData["Title"] = "Index";
 }
 
-<h1 class="title" style="text-align: center;">Vendas</h1>
+<h1>Index</h1>
 
-<form asp-area="" asp-controller="ProdutoClientes" asp-action="Create" method="get">
-    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Adicionar
-        vendas</button>
-</form>
-<table class="table table-sm table-striped table-bordered ">
-    <thead class="align-center">
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
         <tr>
             <th>
-<<<<<<< HEAD
-                Código fornecedor
-=======
                 @Html.DisplayNameFor(model => model.IdProdClient)
->>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cliente)
@@ -30,45 +25,40 @@
                 @Html.DisplayNameFor(model => model.Estoque)
             </th>
             <th>
-                Quantidade
+                @Html.DisplayNameFor(model => model.Qtde)
             </th>
             <th>
-                Data venda
+                @Html.DisplayNameFor(model => model.DataRecebimento)
             </th>
-            <th>
-                Opções
-            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-<<<<<<< HEAD
-            <td class="align-center">
-                @Html.DisplayFor(modelItem => item.IdProdFornRec)
-=======
             <td>
                 @Html.DisplayFor(modelItem => item.IdProdClient)
->>>>>>> c7e4bddaabea31bee0e713a2b5d79deb4b2cc7cb
             </td>
-            <td class="align-center">
+            <td>
                 @Html.DisplayFor(modelItem => item.Cliente.IdCliente)
             </td>
-            <td class="align-center">
+            <td>
                 @Html.DisplayFor(modelItem => item.Produto.CodProduto)
             </td>
-            <td class="align-center">
+            <td>
                 @Html.DisplayFor(modelItem => item.Estoque.IdEstoque)
             </td>
-            <td class="align-center">
+            <td>
                 @Html.DisplayFor(modelItem => item.Qtde)
             </td>
-            <td class="align-center">
+            <td>
                 @Html.DisplayFor(modelItem => item.DataRecebimento)
             </td>
-            <td class="align-center">
-                <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.CodProduto">Detalhes</a>
-            </td>            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCliente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCliente">Delete</a>
+            </td>
         </tr>
 }
     </tbody>

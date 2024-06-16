@@ -1,0 +1,62 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Estoques";
+}
+
+<h1 class="title" style="text-align: center;">Estoques</h1>
+
+<form asp-area="" asp-controller="Estoques" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo estoque</button>
+</form>
+
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
+        <tr>
+            <th>Código</th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Produtos no estoque
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-center">
+                @item.IdEstoque
+            </td>
+            
+            <td class="align-left">
+               @item.NomeEstoque 
+            </td>
+            <td class="align-center">
+                    @item.EstoqueProdutos.Count
+
+
+
+
+@* @Url.Action("QuantidadeProdutos", "Estoques", new { idEstoque = item.IdEstoque }) *@
+                    @* @item.QuantidadeDeItensNoEstoque *@
+            </td>
+            <td class="align-center">
+                    @(item.AtivEstoque ? "Ativo" : "Desativado")
+            </td>
+                <td class="align-center">
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.IdEstoque">Editar</a>
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdEstoque">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdEstoque">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+

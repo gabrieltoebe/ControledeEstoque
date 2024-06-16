@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Control_Estoque.Models.Inventario>
+
+@{
+    ViewData["Title"] = "Inventários";
+}
+
+<h1 class="title" style="text-align: center;">Inventários</h1>
+
+<form asp-area="" asp-controller="Inventario" asp-action="Create" method="get">
+    <button type="submit" class="btn btn-primary nav-link text-white" style="margin-bottom: 20px; width:100%;">Novo inventário</button>
+</form>
+<table class="table table-sm table-striped table-bordered">
+    <thead class="align-center">
+        <tr>
+            <th>
+                Estoque
+            </th>
+           
+            <th>
+                Data movimentação
+            </th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.IdEstoque)
+            </td>
+               
+            <td class="align-center">
+                @Html.DisplayFor(modelItem => item.DataMov)
+            </td>
+                <td class="align-center">
+                    <a class="btn btn-secondary" asp-action="Details" asp-route-id="@item.IdInv">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdInv">Excluir</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
