@@ -440,3 +440,7 @@ bld/
 msbuild.log
 msbuild.err
 msbuild.wrn
+
+# Ignore pastas BIN e OBJ
+bin/
+obj/

@@ -248,7 +248,7 @@ body {
     display: inline;
 }
 
-/* Conte�do escondido */
+/* Conte�do escondido *
 .dropdown-content {
     display: none;
     position: absolute;
@@ -260,7 +260,7 @@ body {
     margin-top: 4%;
 }
 
-    /* Conte�do do dropdown (bot�es) */
+    /* Conte�do do dropdown (bot�es) *
     .a-content {
         color: black;
         padding: 12px 16px;
@@ -272,7 +272,7 @@ body {
         margin-bottom: 5px;
     }
 
-     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
+     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover *
     .dropbtn:focus+.dropdown-content,
     .dropbtn:hover+.dropdown-content,
     .dropdown-content:hover,
@@ -280,11 +280,49 @@ body {
         display: block;
     }
 
-    /* Estilo ao passar o mouse sobre os bot�es do dropdown */
+    /* Estilo ao passar o mouse sobre os bot�es do dropdown 
     .dropdown-content button:hover {
         background-color: #ddd;
     }
-    
+    */
+
+/* Conte�do escondido */
+.dropdown-cadastros {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f900;
+    min-width: 8%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+    z-index: 1;
+    padding: 1%;
+    margin-top: 4%;
+}
+
+/* Conte�do do dropdown (bot�es) */
+.a-cadastros {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    position: sticky;
+    display: inline-block;
+    width: 30%;
+    margin-left: 59%;
+    margin-bottom: 5px;
+}
+
+
+/* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
+.dropbtn:focus + .dropdown-cadastros,
+.dropbtn:hover + .dropdown-cadastros,
+.dropdown-cadastros:hover,
+.dropdown:focus-within .dropdown-cadastros {
+    display: block;
+}
+
+/* Estilo ao passar o mouse sobre os bot�es do dropdown */
+.dropdown-cadastros button:hover {
+    background-color: #ddd;
+}
     
 /* Conte�do escondido */
 .dropdown-consultas {
@@ -310,9 +348,10 @@ body {
         margin-bottom: 5px;
     }
 
-     /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
-    .dropbtn:focus+.dropdown-consultas,
-    .dropbtn:hover+.dropdown-consultas,
+
+    /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
+    .dropbtn:focus + .dropdown-consultas,
+    .dropbtn:hover + .dropdown-consultas,
     .dropdown-consultas:hover,
     .dropdown:focus-within .dropdown-consultas {
         display: block;
@@ -321,44 +360,84 @@ body {
     /* Estilo ao passar o mouse sobre os bot�es do dropdown */
     .dropdown-consultas button:hover {
         background-color: #ddd;
-    }   
+    }
+
 
 /* Conte�do escondido */
 .dropdown-movimentacoes {
     display: none;
     position: absolute;
     background-color: #f9f9f900;
-    min-width:8%;
+    min-width: 8%;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
     z-index: 1;
     padding: 1%;
     margin-top: 3.7%;
 }
 
+/* Conte�do do dropdown (bot�es) */
+.a-movimentacoes {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    position: sticky;
+    display: inline-block;
+    width: 35%;
+    margin-left: 139%;
+    margin-bottom: 3px;
+}
+
+/* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
+.dropbtn:focus + .dropdown-movimentacoes,
+.dropbtn:hover + .dropdown-movimentacoes,
+.dropdown-movimentacoes:hover,
+.dropdown:focus-within .dropdown-movimentacoes {
+    display: block;
+}
+
+/* Estilo ao passar o mouse sobre os bot�es do dropdown */
+.dropdown-movimentacoes button:hover {
+    background-color: #ddd;
+}
+
+    
+
+    /* Conte�do escondido */
+    .dropdown-relatorio {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f900;
+        min-width: 8%;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+        z-index: 1;
+        padding: 1%;
+        margin-top: 4%;
+    }
+
     /* Conte�do do dropdown (bot�es) */
-    .a-movimentacoes {
+    .a-relatorio {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
-        position:sticky;
+        position: sticky;
         display: inline-block;
-        width: 35%;
-        margin-left: 139%;
-        margin-bottom: 3px;
+        width: 30%;
+        margin-left: 59%;
+        margin-bottom: 5px;
     }
 
      /* Mostrar o dropdown quando o bot�o principal � focado ou mouse hover */
-    .dropbtn:focus+.dropdown-movimentacoes,
-    .dropbtn:hover+.dropdown-movimentacoes,
-    .dropdown-movimentacoes:hover,
-    .dropdown:focus-within .dropdown-movimentacoes {
+    .dropbtn:focus+.dropdown-relatorio,
+    .dropbtn:hover+.dropdown-relatorio,
+    .dropdown-relatorio:hover,
+    .dropdown:focus-within .dropdown-relatorio{
         display: block;
     }
 
     /* Estilo ao passar o mouse sobre os bot�es do dropdown */
-    .dropdown-movimentacoes button:hover {
+    .dropdown-relatorio button:hover {
         background-color: #ddd;
-    }
+    }   
    
 .button-23 {
     align-items: center;
