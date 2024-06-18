@@ -47,7 +47,7 @@ namespace Control_Estoque.Controllers
             var currentUser = _context.Users.FirstOrDefault(u => u.Email == username);
 
             var viewFolderPath = Path.Combine(_environment.ContentRootPath, "wwwroot/images");
-            var path = Path.Combine(viewFolderPath, "Inventários.pdf");
+            var path = Path.Combine(viewFolderPath, "Inventarios.pdf");
 
 
 
@@ -109,7 +109,7 @@ namespace Control_Estoque.Controllers
                         });
                 });
             }).GeneratePdf(path);
-            return Redirect("../images/Clientes.pdf");
+            return Redirect("../images/Inventarios.pdf");
             //Response.Headers.Add("Content-Disposition", "attachment;  filename="+path);
             //  Response.ContentType = "application/pdf";
 

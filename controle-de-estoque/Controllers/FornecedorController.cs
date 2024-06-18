@@ -65,7 +65,7 @@ namespace Control_Estoque.Controllers
 
                     page.Header()
 
-                       .Text("Relatorio de Clientes ").SemiBold().FontSize(20).FontColor(Colors.Blue.Medium).AlignCenter();
+                       .Text("Relatorio de Fornecedores ").SemiBold().FontSize(20).FontColor(Colors.Blue.Medium).AlignCenter();
 
                     page.Content().
                      Table(table =>
